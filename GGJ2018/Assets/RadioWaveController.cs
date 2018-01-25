@@ -45,15 +45,13 @@ public class RadioWaveController : MonoBehaviour {
         transform.Translate(movedir * speed * Time.deltaTime);
     }
 
-    public void SetWaypoint(Waypoint targetForwards, Waypoint targetBackwards)
-    {
-        if (!directionInRoute.HasValue)
-        {
-            if (targetForwards == null && targetBackwards != null)
+    public void SetWaypoint(Waypoint targetForwards, Waypoint targetBackwards) {
+        if (!directionInRoute.HasValue) {
+            if (targetForwards != null && targetBackwards == null)
             {
                 directionInRoute = true;
             }
-            else if (targetForwards != null && targetBackwards == null)
+            else if (targetForwards == null && targetBackwards != null)
             {
                 directionInRoute = false;
             }
@@ -63,5 +61,6 @@ public class RadioWaveController : MonoBehaviour {
             transform.SetParent(null, true);
         }
         currentTarget = (directionInRoute.Value ? targetForwards : targetBackwards);
+        //Debug.Log(" " + currentTarget.name);
     }
 }
