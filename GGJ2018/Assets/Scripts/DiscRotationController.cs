@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DiscRotationController : MonoBehaviour 
+public class DiscRotationController : MonoBehaviour
 {
     public enum RotationAxis 
     {
@@ -22,6 +23,21 @@ public class DiscRotationController : MonoBehaviour
         VerticalAxis2,
         VerticalAxis3,
         VerticalAxis4,
+    }
+
+    private int m_Points;
+    public int Points
+    {
+        get
+        {
+            return m_Points;
+        }
+        set
+        {
+            m_MahPointz.text = string.Format("Player {0}: {1}", 
+                int.Parse(m_controllerAxis.ToString().Last().ToString()),
+                m_Points = value);
+        }
     }
 
     [SerializeField]
@@ -48,19 +64,31 @@ public class DiscRotationController : MonoBehaviour
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
 
-    private void Awake() 
+    private void Awake()
     {
         m_rotationAxisName = m_rotationAxis.ToString();
         m_horizontalAxisName = m_horizontalAxis.ToString();
         m_verticalAxisName = m_verticalAxis.ToString();
+m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+
+        Points = 0;
     }
-    
-    private void Update () 
+
+    private void Update()
     {
         transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
 
         transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
                             Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
                             0, Space.World);
+    }
+
+    private void OnTriggerEnter(Collider oucher)
+    {
+        if(oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
+        {
+            Points--;
+            oucher.gameObject.SetActive(false);
+        }
     }
 }
