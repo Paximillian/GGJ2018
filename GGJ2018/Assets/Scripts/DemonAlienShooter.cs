@@ -1,16 +1,32 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DemonAlienShooter : MonoBehaviour {
+public class DemonAlienShooter : MonoBehaviour
+{
+    [SerializeField]
+    [Range(0, 10)]
+    private float secondsBetweenShoostings = 1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Start()
+    {
+        StartCoroutine(shootDemBulletz());
+    }
+
+    private IEnumerator shootDemBulletz()
+    {
+        for(;;)
+        {
+            yield return new WaitForSeconds(secondsBetweenShoostings);
+
+            fireInDaHole();
+        }
+    }
+
+    private void fireInDaHole()
+    {
+        RadioWaveController bullet = ObjectPoolManager.PullObject("Bullet").GetComponent<RadioWaveController>();
+        bullet.transform.position = transform.position;
+    }
 }
