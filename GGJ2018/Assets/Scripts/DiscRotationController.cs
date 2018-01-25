@@ -12,6 +12,6 @@ public class DiscRotationController : MonoBehaviour
     private void Update () 
     {
         float axis = Input.GetAxis("Horizontal");
-        transform.Rotate(0, 0, Input.GetAxis("Horizontal") * m_rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, Input.GetAxis("Horizontal") * m_rotationSpeed * Time.deltaTime * -1);
     }
 }
