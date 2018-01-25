@@ -29,5 +29,7 @@ public class DiscRotationController : MonoBehaviour
     private void Update () 
     {
         transform.Rotate(0, 0, Input.GetAxis(m_controllerAxisName) * m_rotationSpeed * Time.deltaTime * -1);
+
+        //transform.
     }
 }
