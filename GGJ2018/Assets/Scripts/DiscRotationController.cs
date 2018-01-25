@@ -35,7 +35,7 @@ public class DiscRotationController : MonoBehaviour
         set
         {
             m_MahPointz.text = string.Format("Player {0}: {1}", 
-                int.Parse(m_controllerAxis.ToString().Last().ToString()),
+                int.Parse(m_rotationAxis.ToString().Last().ToString()),
                 m_Points = value);
         }
     }
