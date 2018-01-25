@@ -5,35 +5,62 @@ using UnityEngine.UI;
 
 public class DiscRotationController : MonoBehaviour 
 {
-    public enum ControllerAxis 
+    public enum RotationAxis 
     {
+        RotationAxis1,
+        RotationAxis2,
+        RotationAxis3,
+        RotationAxis4,
+    }
+
+    public enum MovementAxis {
         HorizontalAxis1,
         HorizontalAxis2,
         HorizontalAxis3,
         HorizontalAxis4,
+        VerticalAxis1,
+        VerticalAxis2,
+        VerticalAxis3,
+        VerticalAxis4,
     }
 
     [SerializeField]
-    [Range(10,1000)]
+    [Range(10, 1000)]
     private float m_rotationSpeed;
 
     [SerializeField]
-    private ControllerAxis m_controllerAxis;
+    [Range(1, 100)]
+    private float m_movementSpeed;
+
+    [SerializeField]
+    private RotationAxis m_rotationAxis;
+
+    [SerializeField]
+    private MovementAxis m_horizontalAxis;
+
+    [SerializeField]
+    private MovementAxis m_verticalAxis;
 
     [SerializeField]
     private Text m_MahPointz;
 
-    private string m_controllerAxisName;
+    private string m_rotationAxisName;
+    private string m_horizontalAxisName;
+    private string m_verticalAxisName;
 
     private void Awake() 
     {
-        m_controllerAxisName = m_controllerAxis.ToString();  
+        m_rotationAxisName = m_rotationAxis.ToString();
+        m_horizontalAxisName = m_horizontalAxis.ToString();
+        m_verticalAxisName = m_verticalAxis.ToString();
     }
     
     private void Update () 
     {
-        transform.Rotate(0, 0, Input.GetAxis(m_controllerAxisName) * m_rotationSpeed * Time.deltaTime * -1);
+        transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
 
-        //transform.
+        transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
+                            Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
+                            0, Space.World);
     }
 }

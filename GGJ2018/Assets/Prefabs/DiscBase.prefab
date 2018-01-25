@@ -225,4 +225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rotationSpeed: 180
-  m_controllerAxis: 0
+  m_movementSpeed: 3
+  m_rotationAxis: 0
+  m_horizontalAxis: 0
+  m_verticalAxis: 4
+  m_MahPointz: {fileID: 0}
