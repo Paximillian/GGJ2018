@@ -341,8 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOfRoute: 2
   NextPoint: {fileID: 0}
+  PrevPoint: {fileID: 0}
 --- !u!58 &384816847
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -366,6 +366,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 832576493}
+  - component: {fileID: 832576494}
   m_Layer: 0
   m_Name: Route1
   m_TagString: Untagged
@@ -390,6 +391,22 @@ Transform:
   m_Father: {fileID: 1504976305}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &832576494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 832576492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570508718f8d8d042b28d3509fd3fc33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DePoints:
+  - {fileID: 1494339462}
+  - {fileID: 1334726403}
+  - {fileID: 1975335256}
+  - {fileID: 384816846}
 --- !u!1 &1334726399
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOfRoute: 1
-  NextPoint: {fileID: 1975335256}
+  NextPoint: {fileID: 0}
+  PrevPoint: {fileID: 0}
 --- !u!58 &1334726404
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -575,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOfRoute: 0
-  NextPoint: {fileID: 1334726403}
+  NextPoint: {fileID: 0}
+  PrevPoint: {fileID: 0}
 --- !u!58 &1494339463
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -897,8 +914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partOfRoute: 1
-  NextPoint: {fileID: 384816846}
+  NextPoint: {fileID: 0}
+  PrevPoint: {fileID: 0}
 --- !u!58 &1975335257
 CircleCollider2D:
   m_ObjectHideFlags: 0
