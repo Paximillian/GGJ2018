@@ -17,13 +17,15 @@ public class RadioWaveController : MonoBehaviour {
     [SerializeField]
     [Range(0, 90)]
     private int firstAngleOfShoostings = 60;
-    
+    private float m_InitialSpeed;
+
     public DiscRotationController BoomerOfMe { get; private set; }
 
     public bool IzFollowDeWae { get { return currentTarget; } }
 
     private void Awake()
     {
+        m_InitialSpeed = speed;
         Random.InitState(DateTime.Now.Millisecond);
     }
 
@@ -40,6 +42,7 @@ public class RadioWaveController : MonoBehaviour {
         directionInRoute = null;
         LastTarget = null;
         currentTarget = null;
+        speed = m_InitialSpeed;
     }
 
     // Update is called once per frame

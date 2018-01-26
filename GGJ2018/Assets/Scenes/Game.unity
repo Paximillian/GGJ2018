@@ -417,48 +417,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &205117213
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.19441608
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 4.345757
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4255794498615490, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 89e49537590760740adea6d48876fc3a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &300153045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,15 +1259,20 @@ MonoBehaviour:
     - {fileID: 1739734609899258, guid: 89e49537590760740adea6d48876fc3a, type: 2}
   - InnerList:
     - {fileID: 1345644046532404, guid: 90d6533075e9a984dbcaa3593af7f870, type: 2}
+  - InnerList:
+    - {fileID: 1137086833200708, guid: a4a7765368b871844999fab3188c4858, type: 2}
+    - {fileID: 1839612977092216, guid: 99f8fd3d572a2ee4c8cc6ec3994c081f, type: 2}
   ObjectPoolNames:
   - Bullet
   - SmashBoru
   - Buffer
+  - Disc
   ObjectPoolStartAmounts:
   - InnerList: 32000000
   - InnerList: 02000000
   - InnerList: 02000000
-  SubListSizes: 010000000100000001000000
+  - InnerList: 0200000002000000
+  SubListSizes: 01000000010000000100000002000000
 --- !u!4 &1459567786
 Transform:
   m_ObjectHideFlags: 0

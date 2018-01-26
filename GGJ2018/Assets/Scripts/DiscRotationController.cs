@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -69,6 +70,8 @@ public class DiscRotationController : MonoBehaviour
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
 
+    private GameObject m_DiscModel;
+
     private void Awake()
     {
         if (int.Parse(name.Last().ToString()) > (MyPrecious.Instance?.NumberOfPlayers ?? 1))
@@ -88,6 +91,28 @@ public class DiscRotationController : MonoBehaviour
 
             Points = 0;
         }
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(iCanHazDisc());
+    }
+
+    private IEnumerator iCanHazDisc()
+    {
+        if (m_DiscModel != null)
+        {
+            Destroy(m_DiscModel);
+        }
+
+        while (ObjectPoolManager.Instance == null)
+        {
+            yield return null;
+        }
+
+        m_DiscModel = ObjectPoolManager.PullObject("Disc");
+        m_DiscModel.transform.SetParent(transform);
+        m_DiscModel.transform.localPosition = Vector3.zero;
     }
 
     private void Update()
