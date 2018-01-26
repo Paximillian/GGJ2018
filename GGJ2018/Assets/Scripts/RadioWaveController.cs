@@ -94,12 +94,12 @@ public class RadioWaveController : MonoBehaviour {
         if ((directionInRoute.Value ? targetForwards : targetBackwards) == null) //Exit from wae
         {
             transform.SetParent(null, true);
-<<<<<<< HEAD
+
             movedir = (currentTarget.transform.position - LastTarget.transform.position).normalized * 2;
-=======
+
             MakeBoomier(((!directionInRoute.Value) ? targetForwards : targetBackwards).boxOfMakerBetterers, true);
-            movedir = (currentTarget.transform.position - m_LastTarget.transform.position).normalized * goweAwayeNum;
->>>>>>> YDISDO
+            movedir = (currentTarget.transform.position - LastTarget.transform.position).normalized * goweAwayeNum;
+
         }
 
         LastTarget = currentTarget;

@@ -113,10 +113,10 @@ public class DiscRotationController : MonoBehaviour
         m_DiscModel = ObjectPoolManager.PullObject("Disc");
         m_DiscModel.transform.SetParent(transform);
         m_DiscModel.transform.localPosition = Vector3.zero;
-=======
+    }
+
     public void makeHurtyBymaster(DiscRotationController hurtymaster, RadioWaveController masterHurtyTool) {
 
->>>>>>> YDISDO
     }
 
     private void Update()
