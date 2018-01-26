@@ -127,6 +127,10 @@ public class DiscRotationController : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward);
     }
 
+    public void makeHurtyBymaster(DiscRotationController hurtymaster, RadioWaveController masterHurtyTool) {
+
+    }
+
     private void Update()
     {
         transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
