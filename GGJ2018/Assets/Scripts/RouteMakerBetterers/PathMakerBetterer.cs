@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PathMakerBetterer {
 
+    public bool sleepy = true;
     public abstract void MakeBulleterBetterer(RadioWaveController bulleter);
 
 }
