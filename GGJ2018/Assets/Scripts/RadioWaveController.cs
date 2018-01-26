@@ -55,16 +55,18 @@ public class RadioWaveController : MonoBehaviour {
         if (currentTarget != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, speed * Time.deltaTime);
+            transform.right = (currentTarget.transform.position - transform.position).normalized;
         }
         else
         {
             transform.Translate(movedir * speed * Time.deltaTime, Space.World);
+            transform.right = movedir.normalized;
         }
     }
 
     private void MakeBoomier(List<PathMakerBetterer> bettermakerers, bool knowDaWae) {
         foreach (PathMakerBetterer boomierer in bettermakerers) {
-            if (boomierer.sleepy == knowDaWae) { boomierer.MakeBulleterBetterer(this); }
+            //if (boomierer.sleepy == knowDaWae) { boomierer.MakeBulleterBetterer(this); }
         }
     }
 
