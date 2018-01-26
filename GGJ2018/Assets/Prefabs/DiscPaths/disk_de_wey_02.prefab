@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915595946562940}
   m_Layer: 0
-  m_Name: disc_de_wey_02
+  m_Name: disk_de_wey_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,7 +389,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1937311290279090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.166, y: 1.282, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4783124414516860}
