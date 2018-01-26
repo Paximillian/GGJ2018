@@ -105,9 +105,9 @@ public class DiscRotationController : MonoBehaviour
 
         if (bulleter)
         {
-            if (!bulleter.IsDirected)
+            if (!bulleter.IzFollowDeWae)
             {
-                if ((!bulleter.LastLauncher?.Equals(this)) ?? true)
+                if ((!bulleter.BoomerOfMe?.Equals(this)) ?? true)
                 {
                     Points--;
                     oucher.gameObject.SetActive(false);

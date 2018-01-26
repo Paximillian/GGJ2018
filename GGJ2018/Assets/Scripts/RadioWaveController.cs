@@ -18,9 +18,9 @@ public class RadioWaveController : MonoBehaviour {
     [Range(0, 90)]
     private int firstAngleOfShoostings = 60;
     
-    public DiscRotationController LastLauncher { get; private set; }
+    public DiscRotationController BoomerOfMe { get; private set; }
 
-    public bool IsDirected { get { return currentTarget; } }
+    public bool IzFollowDeWae { get { return currentTarget; } }
 
     private void Awake()
     {
@@ -29,14 +29,14 @@ public class RadioWaveController : MonoBehaviour {
 
     private void OnEnable()
     {
-        iCanHazStartValuez();
+        iCanHazStartValuezPl0x();
     }
 
-    private void iCanHazStartValuez()
+    private void iCanHazStartValuezPl0x()
     {
         float angle = Random.Range(-firstAngleOfShoostings, firstAngleOfShoostings);
         movedir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.down;
-        LastLauncher = null;
+        BoomerOfMe = null;
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class RadioWaveController : MonoBehaviour {
     }
 
     public void SetWaypoint(Waypoint targetForwards, Waypoint targetBackwards) {
-        LastLauncher = currentTarget?.GetComponentInParent<DiscRotationController>();
+        BoomerOfMe = currentTarget?.GetComponentInParent<DiscRotationController>();
 
         if (!directionInRoute.HasValue) {
             if (targetForwards != null && targetBackwards == null)

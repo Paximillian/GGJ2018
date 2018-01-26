@@ -35,11 +35,11 @@ public class DemonAlienShooter : MonoBehaviour
         if (oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
         {
             RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
-            if (!bulleter.IsDirected)
+            if (!bulleter.IzFollowDeWae)
             {
-                if (bulleter.LastLauncher)
+                if (bulleter.BoomerOfMe)
                 {
-                    bulleter.LastLauncher.Points++;
+                    bulleter.BoomerOfMe.Points++;
                     oucher.gameObject.SetActive(false);
                 }
             }
