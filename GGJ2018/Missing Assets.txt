@@ -1,0 +1,34 @@
+Sound:
+- Background music for menu. v
+- Background music for game. v
+- Rusty spawns a virus. v
+- Rusty getting hit. v
+- Player spawn (Getting hit invokes this also). v
+- Player sucking in a virus. v
+- Player shooting a virus.
+- Player bump into solid object (Collision with another player/stage limits/rusty). v
+- Bonus pill spawn. v
+- Bonus pill hit/open. v
+- Bonus pill content absorbed by player. v
+- Bonus pill content intercepted by another player. v
+
+Visuals:
+- Background.
+- Background for main menu.
+- Background for end menu.
+- More disc shapes.
+- Particles:
+-- Rusty spawns a virus.
+-- Rusty getting hit.
+-- Player shooting a virus.
+-- Bonus pill float trail.
+-- Virus moving inside tunnel(?)
+-- Bonus pill explodes.
+-- Bonus pill spawns.
+-- Bonus pill content absorbed.
+
+Coding:
+- Control scheme selection.
+- Win condition.
+- End game menu.
+- MOAR BUFFS

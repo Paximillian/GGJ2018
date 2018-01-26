@@ -67,6 +67,11 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     private Text m_MahPointz;
 
+    [SerializeField]
+    private AudioSource m_SpawnSound;
+    [SerializeField]
+    private AudioSource m_BumpSound;
+
     private string m_rotationAxisName;
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
@@ -125,6 +130,8 @@ public class DiscRotationController : MonoBehaviour
         m_DiscModel.transform.localPosition = Vector3.zero;
 
         transform.rotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward);
+
+        m_SpawnSound.Play();
     }
 
     public void makeHurtyBymaster(DiscRotationController hurtymaster, RadioWaveController masterHurtyTool) {
@@ -156,5 +163,10 @@ public class DiscRotationController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        m_BumpSound.Play();
     }
 }
