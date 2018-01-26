@@ -68,7 +68,7 @@ public class DemonAlienShooter : MonoBehaviour
 
     private void maybeSpawnSmashBoru()
     {
-        if(Random.Range(0, 10) == 9)
+        if(Random.Range(0, 10) < 5)
         {
             ObjectPoolManager.PullObject("SmashBoru").transform.position = transform.position;
         }

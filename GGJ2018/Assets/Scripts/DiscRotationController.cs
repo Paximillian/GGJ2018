@@ -79,6 +79,8 @@ public class DiscRotationController : MonoBehaviour
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
 
+    public List<PathMakerBetterer> boxOfMakerBetterers = new List<PathMakerBetterer>();
+
     private GameObject m_DiscModel;
 
     private void Awake()
@@ -156,7 +158,7 @@ public class DiscRotationController : MonoBehaviour
 
         if (bulleter)
         {
-            if (!bulleter.IzFollowDeWae)
+            if (!bulleter.IzFollowDeWae && !(bulleter.LastTarget != null && bulleter.LastTarget.holderOfMe == this))
             {
                 if ((!bulleter.BoomerOfMe?.Equals(this)) ?? true)
                 {

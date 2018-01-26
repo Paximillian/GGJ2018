@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DeWae : MonoBehaviour {
 
+    public WaeShower holderOfMe;
     public List<Waypoint> DePoints;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < DePoints.Count; i++) {
+            DePoints[i].holderOfMe = holderOfMe.holderOfThee;
             if (i > 0) {
                 DePoints[i].NextPoint = DePoints[i - 1];
             }

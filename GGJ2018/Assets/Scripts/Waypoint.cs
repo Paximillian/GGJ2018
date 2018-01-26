@@ -18,8 +18,15 @@ public class Waypoint : MonoBehaviour {
 
     public Waypoint NextPoint;
     public Waypoint PrevPoint;
+    public DiscRotationController holderOfMe;
 
-    public List<PathMakerBetterer> boxOfMakerBetterers = new List<PathMakerBetterer>();
+    private void Start()
+    {
+        AudioSource[] sauces = GetComponents<AudioSource>();
+        m_VirusAbsorbSound = sauces[0];
+        m_PillAbsorbSound = sauces[1];
+        m_PillKidnapAbsorbSound = sauces[2];
+    }
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -41,11 +48,12 @@ public class Waypoint : MonoBehaviour {
 
     private void UpgradeWae(MakerBettererBox box)
     {
-        if (NextPoint != null && PrevPoint != null) return;
-
-        boxOfMakerBetterers.Add(box.insides);
-        if (NextPoint == null) { PrevPoint.UpgradeWaePlox(box, this); }
-        else { NextPoint.UpgradeWaePlox(box, this); }
+        //if (NextPoint != null && PrevPoint != null) return;
+        //
+        //boxOfMakerBetterers.Add(box.insides);
+        //if (NextPoint == null) { PrevPoint.UpgradeWaePlox(box, this); }
+        //else { NextPoint.UpgradeWaePlox(box, this); }
+        holderOfMe.boxOfMakerBetterers.Add(box.insides);
 
         if (box.LastTarget == this)
         {
@@ -59,8 +67,8 @@ public class Waypoint : MonoBehaviour {
 
     public void UpgradeWaePlox(MakerBettererBox box, Waypoint ploxer)
     {
-        boxOfMakerBetterers.Add(box.insides);
-        if (ploxer == NextPoint) { PrevPoint?.UpgradeWaePlox(box, this); }
-        else { NextPoint?.UpgradeWaePlox(box, this); }
+        //boxOfMakerBetterers.Add(box.insides);
+        //if (ploxer == NextPoint) { PrevPoint?.UpgradeWaePlox(box, this); }
+        //else { NextPoint?.UpgradeWaePlox(box, this); }
     }
 }

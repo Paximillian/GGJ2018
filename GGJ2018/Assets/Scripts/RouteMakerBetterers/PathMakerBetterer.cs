@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class PathMakerBetterer {
 
-    public virtual void MakeBulleterBettererBeforeItKnowDaWae(RadioWaveController bulleter) { }
+    public abstract void MakeBulleterBettererBeforeItKnowDaWae(RadioWaveController bulleter);
 
-    public virtual void MakeBulleterBettererNowDatItKnowDaWae(RadioWaveController bulleter) { }
+    public abstract void MakeBulleterBettererNowDatItKnowDaWae(RadioWaveController bulleter);
 
 }
