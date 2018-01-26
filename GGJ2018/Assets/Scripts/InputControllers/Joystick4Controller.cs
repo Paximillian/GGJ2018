@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick4Controller : MonoBehaviour, IDiscController
+public class Joystick4Controller : IDiscController
 {
     public float GetHorizontalAxis() 
     {
-        return Input.GetAxis("HorizontalJ4");
+        return Input.GetAxis("HorizontalAxisJ4");
     }
 
-    public bool GetJoinButton()
+    public bool GetJoinKeyDown()
     {
-        return Input.GetKeyDown("JoinJ4");
+        return Input.GetButtonDown("JoinJ4");
     }
 
     public float GetRotationAxis() {
-        return Input.GetAxis("RotationJ4");
+        return Input.GetAxis("RotationAxisJ4");
     }
 
     public float GetVerticalAxis() {
-        return Input.GetAxis("VerticalJ4");
+        return Input.GetAxis("VerticalAxisJ4");
     }
 }

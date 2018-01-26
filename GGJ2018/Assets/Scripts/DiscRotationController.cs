@@ -22,7 +22,7 @@ public class DiscRotationController : MonoBehaviour
             if (m_MahPointz)
             {
                 m_MahPointz.text = string.Format("Player {0}: {1}",
-                    2,
+                    myPlayerNumber,
                     m_Points);
             }
         }
@@ -51,6 +51,10 @@ public class DiscRotationController : MonoBehaviour
 
     private IDiscController m_discInputController;
 
+    private static int playerNumberTracker = 0;
+    
+    private int myPlayerNumber;
+
     private void Awake()
     {
         if (int.Parse(name.Last().ToString()) > (MyPrecious.Instance?.NumberOfPlayers ?? 1))
@@ -59,6 +63,11 @@ public class DiscRotationController : MonoBehaviour
         }
         else
         {
+            myPlayerNumber = ++playerNumberTracker;
+            m_discInputController = MyPrecious.Instance.JoinedControllers[myPlayerNumber];
+
+            Debug.Log(m_discInputController);
+
             if (m_MahPointz)
             {
                 m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);

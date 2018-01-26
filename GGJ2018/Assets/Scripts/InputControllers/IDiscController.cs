@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IDiscController
 {
-    bool GetJoinButton();
+    bool GetJoinKeyDown();
 
     float GetRotationAxis();
 

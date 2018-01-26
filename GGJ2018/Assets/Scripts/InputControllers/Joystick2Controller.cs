@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick2Controller : MonoBehaviour, IDiscController {
+public class Joystick2Controller : IDiscController {
     public float GetHorizontalAxis() {
-        return Input.GetAxis("HorizontalJ2");
+        return Input.GetAxis("HorizontalAxisJ2");
     }
 
-    public bool GetJoinButton() {
-        return Input.GetKeyDown("JoinJ2");
+    public bool GetJoinKeyDown() {
+        return Input.GetButtonDown("JoinJ2");
     }
 
     public float GetRotationAxis() {
-        return Input.GetAxis("RotationJ2");
+        return Input.GetAxis("RotationAxisJ2");
     }
 
     public float GetVerticalAxis() {
-        return Input.GetAxis("VerticalJ2");
+        return Input.GetAxis("VerticalAxisJ2");
     }
 }
