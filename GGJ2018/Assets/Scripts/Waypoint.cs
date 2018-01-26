@@ -49,11 +49,11 @@ public class Waypoint : MonoBehaviour {
 
         if (box.LastTarget == this)
         {
-            m_PillAbsorbSound.Play();
+            //m_PillAbsorbSound?.Play();
         }
         else
         {
-            m_PillKidnapAbsorbSound.Play();
+            //m_PillKidnapAbsorbSound?.Play();
         }
     }
 
