@@ -71,7 +71,7 @@ public class DiscRotationController : MonoBehaviour
 
     private void Awake()
     {
-        if (int.Parse(name.Last().ToString()) > MyPrecious.Instance.NumberOfPlayers)
+        if (int.Parse(name.Last().ToString()) > (MyPrecious.Instance?.NumberOfPlayers ?? 1))
         {
             gameObject.SetActive(false);
         }
