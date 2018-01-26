@@ -90,6 +90,10 @@ public class DiscRotationController : MonoBehaviour
         }
     }
 
+    public void makeHurtyBymaster(DiscRotationController hurtymaster, RadioWaveController masterHurtyTool) {
+
+    }
+
     private void Update()
     {
         transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
