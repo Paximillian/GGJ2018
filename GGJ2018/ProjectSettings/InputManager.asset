@@ -9,8 +9,8 @@ InputManager:
     m_Name: RotationAxis1
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: q
-    positiveButton: e
+    negativeButton: left
+    positiveButton: right
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -25,8 +25,8 @@ InputManager:
     m_Name: RotationAxis2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: i
-    positiveButton: p
+    negativeButton: '[4]'
+    positiveButton: '[6]'
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3
@@ -153,8 +153,8 @@ InputManager:
     m_Name: VerticalAxis2
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: s
-    positiveButton: w
+    negativeButton: l
+    positiveButton: o
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3

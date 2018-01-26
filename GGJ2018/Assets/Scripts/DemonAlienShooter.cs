@@ -18,9 +18,9 @@ public class DemonAlienShooter : MonoBehaviour
     {
         for(;;)
         {
-            fireInDaHole();
-
             yield return new WaitForSeconds(secondsBetweenShoostings);
+
+            fireInDaHole();
         }
     }
 

@@ -71,16 +71,23 @@ public class DiscRotationController : MonoBehaviour
 
     private void Awake()
     {
-        m_rotationAxisName = m_rotationAxis.ToString();
-        m_horizontalAxisName = m_horizontalAxis.ToString();
-        m_verticalAxisName = m_verticalAxis.ToString();
-
-        if (m_MahPointz)
+        if (int.Parse(name.Last().ToString()) > MyPrecious.Instance.NumberOfPlayers)
         {
-            m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+            gameObject.SetActive(false);
         }
+        else
+        {
+            m_rotationAxisName = m_rotationAxis.ToString();
+            m_horizontalAxisName = m_horizontalAxis.ToString();
+            m_verticalAxisName = m_verticalAxis.ToString();
 
-        Points = 0;
+            if (m_MahPointz)
+            {
+                m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+            }
+
+            Points = 0;
+        }
     }
 
     private void Update()
