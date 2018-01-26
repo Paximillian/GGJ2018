@@ -15,8 +15,7 @@ public class Waypoint : MonoBehaviour {
 
     public Waypoint NextPoint;
     public Waypoint PrevPoint;
-
-    public List<PathMakerBetterer> boxOfMakerBetterers = new List<PathMakerBetterer>();
+    public DiscRotationController holderOfMe;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -37,11 +36,12 @@ public class Waypoint : MonoBehaviour {
 
     private void UpgradeWae(MakerBettererBox box)
     {
-        if (NextPoint != null && PrevPoint != null) return;
-
-        boxOfMakerBetterers.Add(box.insides);
-        if (NextPoint == null) { PrevPoint.UpgradeWaePlox(box, this); }
-        else { NextPoint.UpgradeWaePlox(box, this); }
+        //if (NextPoint != null && PrevPoint != null) return;
+        //
+        //boxOfMakerBetterers.Add(box.insides);
+        //if (NextPoint == null) { PrevPoint.UpgradeWaePlox(box, this); }
+        //else { NextPoint.UpgradeWaePlox(box, this); }
+        holderOfMe.boxOfMakerBetterers.Add(box.insides);
 
         if (box.LastTarget == this)
         {
@@ -55,8 +55,8 @@ public class Waypoint : MonoBehaviour {
 
     public void UpgradeWaePlox(MakerBettererBox box, Waypoint ploxer)
     {
-        boxOfMakerBetterers.Add(box.insides);
-        if (ploxer == NextPoint) { PrevPoint?.UpgradeWaePlox(box, this); }
-        else { NextPoint?.UpgradeWaePlox(box, this); }
+        //boxOfMakerBetterers.Add(box.insides);
+        //if (ploxer == NextPoint) { PrevPoint?.UpgradeWaePlox(box, this); }
+        //else { NextPoint?.UpgradeWaePlox(box, this); }
     }
 }

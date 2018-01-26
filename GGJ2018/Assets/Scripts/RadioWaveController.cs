@@ -89,7 +89,14 @@ public class RadioWaveController : MonoBehaviour {
 
     private void MakeBoomier(List<PathMakerBetterer> bettermakerers, bool knowDaWae) {
         foreach (PathMakerBetterer boomierer in bettermakerers) {
-            //if (boomierer.sleepy == knowDaWae) { boomierer.MakeBulleterBetterer(this); }
+            if (!knowDaWae)
+            {
+                boomierer.MakeBulleterBettererBeforeItKnowDaWae(this);
+            }
+            else
+            {
+                boomierer.MakeBulleterBettererNowDatItKnowDaWae(this);
+            }
         }
     }
 
@@ -97,7 +104,9 @@ public class RadioWaveController : MonoBehaviour {
 
         masterWhoGaveSock = BoomerOfMe;
 
-        BoomerOfMe = currentTarget?.GetComponentInParent<DiscRotationController>();
+        DiscRotationController temp = (targetForwards == null ? targetForwards : targetBackwards)?.holderOfMe;
+
+        if (temp != null) { BoomerOfMe = temp; }
 
         if (BoomerOfMe != masterWhoGaveSock) {
             BoomerOfMe?.makeHurtyBymaster(masterWhoGaveSock, this);
@@ -108,25 +117,28 @@ public class RadioWaveController : MonoBehaviour {
             if (targetForwards != null && targetBackwards == null)
             {
                 directionInRoute = true;
-                MakeBoomier(targetForwards.boxOfMakerBetterers, false);
+
+                MakeBoomier(targetForwards.holderOfMe.boxOfMakerBetterers, false);
             }
             else if (targetForwards == null && targetBackwards != null)
             {
                 directionInRoute = false;
-                MakeBoomier(targetBackwards.boxOfMakerBetterers, false);
+                MakeBoomier(targetBackwards.holderOfMe.boxOfMakerBetterers, false);
             }
         }
         if ((directionInRoute.Value ? targetForwards : targetBackwards) == null) //Exit from wae
         {
             transform.SetParent(null, true);
 
-            MakeBoomier(((!directionInRoute.Value) ? targetForwards : targetBackwards).boxOfMakerBetterers, true);
+            MakeBoomier((targetForwards != null ? targetForwards : targetBackwards).holderOfMe.boxOfMakerBetterers, true);
             movedir = (currentTarget.transform.position - LastTarget.transform.position).normalized * goweAwayeNum;
 
             m_ShootSound.Play();
         }
 
-        LastTarget = currentTarget;
+        if (currentTarget != null) {
+            LastTarget = currentTarget;
+        }
         currentTarget = (directionInRoute.Value ? targetForwards : targetBackwards);
     }
 }

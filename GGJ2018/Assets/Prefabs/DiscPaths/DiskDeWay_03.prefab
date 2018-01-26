@@ -283,6 +283,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4471207255003438}
+  - component: {fileID: 114101994360232200}
   m_Layer: 0
   m_Name: DiskDeWay_03
   m_TagString: Untagged
@@ -332,7 +333,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1316115958242018}
   m_LocalRotation: {x: -0, y: 0, z: -0.9633969, w: -0.2680792}
-  m_LocalPosition: {x: -0.62, y: -0.36, z: 0}
+  m_LocalPosition: {x: -0.78, y: -0.49, z: 0}
   m_LocalScale: {x: 0.39900145, y: 0.39900166, z: 0.39900166}
   m_Children: []
   m_Father: {fileID: 4568662013738010}
@@ -436,7 +437,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1839612977092216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: 1.8900003, z: -0.010000005}
+  m_LocalPosition: {x: -17.08, y: 2.4400003, z: -0.010000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4568662013738010}
@@ -530,7 +531,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463095000071220}
   m_LocalRotation: {x: 0, y: 0, z: 0.8454483, w: 0.53405726}
-  m_LocalPosition: {x: -0.95, y: 0.43, z: 0}
+  m_LocalPosition: {x: -1.22, y: 0.48, z: 0}
   m_LocalScale: {x: 0.37947115, y: 0.3794713, z: 0.3794713}
   m_Children: []
   m_Father: {fileID: 4568662013738010}
@@ -1188,8 +1189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114064496943265342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1201,8 +1206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114083311362133156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1214,8 +1223,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
+--- !u!114 &114101994360232200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839612977092216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51d1c9f13699ec4581e9024bedf4dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holderOfThee: {fileID: 0}
 --- !u!114 &114116871936661926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1227,8 +1252,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114126904398239272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1240,8 +1269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114190207527548894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1253,8 +1286,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114240446035537928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1266,8 +1303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114477533205485446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1279,8 +1320,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114575241193239844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1292,8 +1337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114693626312308472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1305,8 +1354,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114745261561441300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1318,6 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570508718f8d8d042b28d3509fd3fc33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  holderOfMe: {fileID: 114101994360232200}
   DePoints:
   - {fileID: 114869517508218836}
   - {fileID: 114190207527548894}
@@ -1344,8 +1398,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114869517508218836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1357,8 +1415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114871099210419500
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1370,8 +1432,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!114 &114885190595371018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1383,8 +1449,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d81315f35620446ba9e7df28d174f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_VirusAbsorbSound: {fileID: 0}
+  m_PillAbsorbSound: {fileID: 0}
+  m_PillKidnapAbsorbSound: {fileID: 0}
   NextPoint: {fileID: 0}
   PrevPoint: {fileID: 0}
+  holderOfMe: {fileID: 0}
 --- !u!135 &135352650202553680
 SphereCollider:
   m_ObjectHideFlags: 1

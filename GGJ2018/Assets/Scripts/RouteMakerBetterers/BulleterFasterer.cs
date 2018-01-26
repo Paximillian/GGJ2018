@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BulleterFasterer : PathMakerBetterer
 {
+    public override void MakeBulleterBettererBeforeItKnowDaWae(RadioWaveController bulleter)
+    {
+        
+    }
 
     public override void MakeBulleterBettererNowDatItKnowDaWae(RadioWaveController bulleter)
     {
