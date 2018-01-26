@@ -69,7 +69,8 @@ public class DiscRotationController : MonoBehaviour
         m_rotationAxisName = m_rotationAxis.ToString();
         m_horizontalAxisName = m_horizontalAxis.ToString();
         m_verticalAxisName = m_verticalAxis.ToString();
-m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+
+        m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
 
         Points = 0;
     }
