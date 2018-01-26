@@ -101,13 +101,13 @@ public class DiscRotationController : MonoBehaviour
 
     private void OnTriggerEnter(Collider oucher)
     {
-        if (oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
-        {
-            RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
+        RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
 
+        if (bulleter)
+        {
             if (!bulleter.IsDirected)
             {
-                if (!bulleter.LastLauncher.Equals(this))
+                if ((!bulleter.LastLauncher?.Equals(this)) ?? true)
                 {
                     Points--;
                     oucher.gameObject.SetActive(false);
