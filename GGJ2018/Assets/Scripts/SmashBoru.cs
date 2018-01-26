@@ -53,6 +53,9 @@ public class SmashBoru : MonoBehaviour
         {
             if (bulleter.BoomerOfMe)
             {
+                MakerBettererBox betterer = ObjectPoolManager.PullObject("Buffer").GetComponent<MakerBettererBox>();
+                betterer.transform.position = transform.position;
+                betterer.SetWaypoint(bulleter.LastTarget, null);
                 gameObject.SetActive(false);
                 oucher.gameObject.SetActive(false);
             }

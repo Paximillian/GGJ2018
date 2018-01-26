@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class RadioWaveController : MonoBehaviour {
 
     public float speed;
-    private Waypoint m_LastTarget;
+    public Waypoint LastTarget { get; set; }
     private Waypoint currentTarget;
 
     private Vector3 movedir;
@@ -37,6 +37,9 @@ public class RadioWaveController : MonoBehaviour {
         float angle = Random.Range(-firstAngleOfShoostings, firstAngleOfShoostings);
         movedir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.down;
         BoomerOfMe = null;
+        directionInRoute = null;
+        LastTarget = null;
+        currentTarget = null;
     }
 
     // Update is called once per frame
@@ -76,10 +79,10 @@ public class RadioWaveController : MonoBehaviour {
         if ((directionInRoute.Value ? targetForwards : targetBackwards) == null)
         {
             transform.SetParent(null, true);
-            movedir = (currentTarget.transform.position - m_LastTarget.transform.position).normalized * 2;
+            movedir = (currentTarget.transform.position - LastTarget.transform.position).normalized * 2;
         }
 
-        m_LastTarget = currentTarget;
+        LastTarget = currentTarget;
         currentTarget = (directionInRoute.Value ? targetForwards : targetBackwards);
     }
 }
