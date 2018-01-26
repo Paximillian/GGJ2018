@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 public class RadioWaveController : MonoBehaviour {
 
     public float speed;
+
+    public float spinnySpeed = 5f;
     public Waypoint LastTarget { get; set; }
     private Waypoint currentTarget;
 
@@ -55,12 +57,18 @@ public class RadioWaveController : MonoBehaviour {
         if (currentTarget != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, speed * Time.deltaTime);
-            transform.right = (currentTarget.transform.position - transform.position).normalized;
+            transform.right = Vector3.Lerp(transform.right, 
+                (currentTarget.transform.position - transform.position).normalized,
+                spinnySpeed * Time.deltaTime);
+            //transform.right = (currentTarget.transform.position - transform.position).normalized;
         }
         else
         {
             transform.Translate(movedir * speed * Time.deltaTime, Space.World);
-            transform.right = movedir.normalized;
+            transform.right = Vector3.Lerp(transform.right,
+                movedir.normalized,
+                spinnySpeed * Time.deltaTime);
+            //transform.right = movedir.normalized;
         }
     }
 
