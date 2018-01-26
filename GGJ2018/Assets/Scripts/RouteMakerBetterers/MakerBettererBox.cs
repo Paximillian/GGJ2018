@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MakerBettererBox : RadioWaveController
 {
-
     public PathMakerBetterer insides;
 
-    private void Start()
+    private void OnEnable()
     {
         insides = new BulleterFasterer();
     }

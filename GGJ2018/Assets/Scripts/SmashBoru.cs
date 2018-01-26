@@ -10,9 +10,17 @@ public class SmashBoru : MonoBehaviour
     private float m_SinSign = 1;
     private float m_CosSign = 1;
 
+    [SerializeField]
+    private AudioSource m_SpawnSound;
+
     private void Awake()
     {
         StartCoroutine(swapper());
+    }
+
+    private void OnEnable()
+    {
+        m_SpawnSound.Play();
     }
 
     private IEnumerator swapper()
