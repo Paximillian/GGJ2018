@@ -7,17 +7,21 @@ using Random = UnityEngine.Random;
 public class RadioWaveController : MonoBehaviour {
 
     public float speed;
-
+    private Waypoint m_LastTarget;
     private Waypoint currentTarget;
 
     private Vector3 movedir;
 
     private bool? directionInRoute;
-
+    
     [SerializeField]
     [Range(0, 90)]
     private int firstAngleOfShoostings = 60;
     
+    public DiscRotationController LastLauncher { get; private set; }
+
+    public bool IsDirected { get { return currentTarget; } }
+
     private void Awake()
     {
         Random.InitState(DateTime.Now.Millisecond);
@@ -32,6 +36,7 @@ public class RadioWaveController : MonoBehaviour {
     {
         float angle = Random.Range(-firstAngleOfShoostings, firstAngleOfShoostings);
         movedir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.down;
+        LastLauncher = null;
     }
 
     // Update is called once per frame
@@ -39,13 +44,17 @@ public class RadioWaveController : MonoBehaviour {
     {
         if (currentTarget != null)
         {
-            movedir = (currentTarget.transform.position - transform.position).normalized;
+            transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, speed * Time.deltaTime);
         }
-
-        transform.Translate(movedir * speed * Time.deltaTime);
+        else
+        {
+            transform.Translate(movedir * speed * Time.deltaTime, Space.World);
+        }
     }
 
     public void SetWaypoint(Waypoint targetForwards, Waypoint targetBackwards) {
+        LastLauncher = currentTarget?.GetComponentInParent<DiscRotationController>();
+
         if (!directionInRoute.HasValue) {
             if (targetForwards != null && targetBackwards == null)
             {
@@ -59,8 +68,10 @@ public class RadioWaveController : MonoBehaviour {
         if ((directionInRoute.Value ? targetForwards : targetBackwards) == null)
         {
             transform.SetParent(null, true);
+            movedir = (currentTarget.transform.position - m_LastTarget.transform.position).normalized * 2;
         }
+
+        m_LastTarget = currentTarget;
         currentTarget = (directionInRoute.Value ? targetForwards : targetBackwards);
-        //Debug.Log(" " + currentTarget.name);
     }
 }

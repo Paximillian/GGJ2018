@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -240,6 +241,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -621,6 +623,7 @@ GameObject:
   - component: {fileID: 1504976303}
   - component: {fileID: 1504976302}
   - component: {fileID: 1504976301}
+  - component: {fileID: 1504976306}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -709,6 +712,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504976306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1504976300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab890f4302a35c4e8b57a2b552cef17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rotationSpeed: 50
+  m_movementSpeed: 10
+  m_rotationAxis: 0
+  m_horizontalAxis: 0
+  m_verticalAxis: 4
+  m_MahPointz: {fileID: 0}
 --- !u!1 &1714848663
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
+  firstAngleOfShoostings: 60
 --- !u!23 &1714848665
 MeshRenderer:
   m_ObjectHideFlags: 0

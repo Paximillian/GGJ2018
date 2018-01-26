@@ -18,9 +18,9 @@ public class DemonAlienShooter : MonoBehaviour
     {
         for(;;)
         {
-            yield return new WaitForSeconds(secondsBetweenShoostings);
-
             fireInDaHole();
+
+            yield return new WaitForSeconds(secondsBetweenShoostings);
         }
     }
 
@@ -28,5 +28,21 @@ public class DemonAlienShooter : MonoBehaviour
     {
         RadioWaveController bullet = ObjectPoolManager.PullObject("Bullet").GetComponent<RadioWaveController>();
         bullet.transform.position = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider oucher)
+    {
+        if (oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
+        {
+            RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
+            if (!bulleter.IsDirected)
+            {
+                if (bulleter.LastLauncher)
+                {
+                    bulleter.LastLauncher.Points++;
+                    oucher.gameObject.SetActive(false);
+                }
+            }
+        }
     }
 }

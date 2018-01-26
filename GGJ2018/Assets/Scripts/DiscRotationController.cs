@@ -34,9 +34,14 @@ public class DiscRotationController : MonoBehaviour
         }
         set
         {
-            m_MahPointz.text = string.Format("Player {0}: {1}", 
-                int.Parse(m_rotationAxis.ToString().Last().ToString()),
-                m_Points = value);
+            m_Points = value;
+
+            if (m_MahPointz)
+            {
+                m_MahPointz.text = string.Format("Player {0}: {1}",
+                    int.Parse(m_rotationAxis.ToString().Last().ToString()),
+                    m_Points);
+            }
         }
     }
 
@@ -69,7 +74,11 @@ public class DiscRotationController : MonoBehaviour
         m_rotationAxisName = m_rotationAxis.ToString();
         m_horizontalAxisName = m_horizontalAxis.ToString();
         m_verticalAxisName = m_verticalAxis.ToString();
-m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+
+        if (m_MahPointz)
+        {
+            m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
+        }
 
         Points = 0;
     }
@@ -85,10 +94,13 @@ m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
 
     private void OnTriggerEnter(Collider oucher)
     {
-        if(oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
+        if (oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
         {
-            Points--;
-            oucher.gameObject.SetActive(false);
+            if (!oucher.GetComponent<RadioWaveController>().IsDirected)
+            {
+                Points--;
+                oucher.gameObject.SetActive(false);
+            }
         }
     }
 }

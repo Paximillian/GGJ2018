@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 135715537150502048}
   m_Layer: 8
   m_Name: Bulleter
-  m_TagString: Untagged
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af87db4a0069f674c8f0452a38e3eaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   firstAngleOfShoostings: 60
 --- !u!135 &135715537150502048
 SphereCollider:
