@@ -1242,11 +1242,13 @@ MonoBehaviour:
     - {fileID: 1480492794155924, guid: 386cf28d29a7f1f42a36b29d1107e91d, type: 2}
   - InnerList:
     - {fileID: 1739734609899258, guid: 89e49537590760740adea6d48876fc3a, type: 2}
+    - {fileID: 1188198417822840, guid: 00d059af41d2fb74f92cd7450ab33009, type: 2}
   - InnerList:
     - {fileID: 1345644046532404, guid: 90d6533075e9a984dbcaa3593af7f870, type: 2}
   - InnerList:
     - {fileID: 1137086833200708, guid: a4a7765368b871844999fab3188c4858, type: 2}
     - {fileID: 1839612977092216, guid: 99f8fd3d572a2ee4c8cc6ec3994c081f, type: 2}
+    - {fileID: 1922408780756422, guid: 51c148442df78f543a1e80ed6aa564b1, type: 2}
   ObjectPoolNames:
   - Bullet
   - SmashBoru
@@ -1254,10 +1256,10 @@ MonoBehaviour:
   - Disc
   ObjectPoolStartAmounts:
   - InnerList: 32000000
+  - InnerList: 0100000001000000
   - InnerList: 02000000
-  - InnerList: 02000000
-  - InnerList: 0500000005000000
-  SubListSizes: 01000000010000000100000002000000
+  - InnerList: 050000000500000005000000
+  SubListSizes: 01000000020000000100000003000000
 --- !u!4 &1459567786
 Transform:
   m_ObjectHideFlags: 0
