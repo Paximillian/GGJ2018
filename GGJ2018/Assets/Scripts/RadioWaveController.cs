@@ -52,17 +52,25 @@ public class RadioWaveController : MonoBehaviour {
         }
     }
 
+    private void MakeBoomier(List<PathMakerBetterer> bettermakerers) {
+        foreach (PathMakerBetterer boomierer in bettermakerers) {
+            boomierer.MakeBulleterBetterer(this);
+        }
+    }
+
     public void SetWaypoint(Waypoint targetForwards, Waypoint targetBackwards) {
         BoomerOfMe = currentTarget?.GetComponentInParent<DiscRotationController>();
 
-        if (!directionInRoute.HasValue) {
+        if (!directionInRoute.HasValue) {//Add a direction in route plus upgrades?
             if (targetForwards != null && targetBackwards == null)
             {
                 directionInRoute = true;
+                MakeBoomier(targetForwards.boxOfMakerBetterers);
             }
             else if (targetForwards == null && targetBackwards != null)
             {
                 directionInRoute = false;
+                MakeBoomier(targetBackwards.boxOfMakerBetterers);
             }
         }
         if ((directionInRoute.Value ? targetForwards : targetBackwards) == null)
