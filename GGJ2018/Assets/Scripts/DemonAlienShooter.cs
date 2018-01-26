@@ -40,7 +40,7 @@ public class DemonAlienShooter : MonoBehaviour
             {
                 if (bulleter.BoomerOfMe)
                 {
-                    bulleter.BoomerOfMe.Points++;
+                    bulleter.BoomerOfMe.Points += 5;
                     oucher.gameObject.SetActive(false);
 
                     maybeSpawnSmashBoru();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DiscRotationController : MonoBehaviour
 {
@@ -100,19 +101,30 @@ public class DiscRotationController : MonoBehaviour
 
     private IEnumerator iCanHazDisc()
     {
-        if (m_DiscModel != null)
-        {
-            Destroy(m_DiscModel);
-        }
-
         while (ObjectPoolManager.Instance == null)
         {
             yield return null;
         }
 
-        m_DiscModel = ObjectPoolManager.PullObject("Disc");
+        GameObject model = ObjectPoolManager.PullObject("Disc");
+
+        if (m_DiscModel != null)
+        {
+            m_DiscModel.SetActive(false);
+
+            while(m_DiscModel.name.Equals(model.name))
+            {
+                model.SetActive(false);
+                model = ObjectPoolManager.PullObject("Disc");
+            }
+        }
+
+        m_DiscModel = model;
+
         m_DiscModel.transform.SetParent(transform);
         m_DiscModel.transform.localPosition = Vector3.zero;
+
+        transform.rotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward);
     }
 
     public void makeHurtyBymaster(DiscRotationController hurtymaster, RadioWaveController masterHurtyTool) {
@@ -140,6 +152,7 @@ public class DiscRotationController : MonoBehaviour
                 {
                     Points--;
                     oucher.gameObject.SetActive(false);
+                    StartCoroutine(iCanHazDisc());
                 }
             }
         }

@@ -1256,7 +1256,7 @@ MonoBehaviour:
   - InnerList: 32000000
   - InnerList: 02000000
   - InnerList: 02000000
-  - InnerList: 0200000002000000
+  - InnerList: 0500000005000000
   SubListSizes: 01000000010000000100000002000000
 --- !u!4 &1459567786
 Transform:
