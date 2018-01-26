@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -88,7 +88,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -239,6 +238,11 @@ Prefab:
       propertyPath: m_verticalAxis
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 199305666228510268, guid: b6645873617fab0409fb5adcc18d9103,
+        type: 2}
+      propertyPath: m_SelectedEditorRenderState
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6645873617fab0409fb5adcc18d9103, type: 2}
   m_IsPrefabParent: 0
@@ -344,8 +348,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 191297609}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 497, y: 279.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1366237651}
   m_Father: {fileID: 0}
@@ -999,7 +1003,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1366237650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -241, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 191297613}
@@ -1181,9 +1185,9 @@ MonoBehaviour:
   - InnerList:
     - {fileID: 1345644046532404, guid: 90d6533075e9a984dbcaa3593af7f870, type: 2}
   - InnerList:
+    - {fileID: 1922408780756422, guid: 51c148442df78f543a1e80ed6aa564b1, type: 2}
     - {fileID: 1137086833200708, guid: a4a7765368b871844999fab3188c4858, type: 2}
     - {fileID: 1839612977092216, guid: 99f8fd3d572a2ee4c8cc6ec3994c081f, type: 2}
-    - {fileID: 1922408780756422, guid: 51c148442df78f543a1e80ed6aa564b1, type: 2}
   ObjectPoolNames:
   - Bullet
   - SmashBoru
@@ -1272,7 +1276,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
