@@ -25,6 +25,15 @@ public class SmashBoru : MonoBehaviour
     {
         m_SpawnSound.Play();
         m_SpawnParticles.Play();
+
+        StartCoroutine(PrescribePills());
+    }
+
+    private IEnumerator PrescribePills()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        GetComponentInChildren<MeshRenderer>(true).gameObject.SetActive(true);
     }
 
     private IEnumerator swapper()

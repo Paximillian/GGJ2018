@@ -14,7 +14,7 @@ public class DemonAlienShooter : MonoBehaviour
     private AudioSource m_RustySpawnSound;
 
     [SerializeField]
-    private AudioSource m_RustyHitSound;
+    private AudioSource[] m_RustyHitSound;
 
     [SerializeField]
     private ParticleSystem m_RustySpawnParticles;
@@ -57,7 +57,7 @@ public class DemonAlienShooter : MonoBehaviour
                 {
                     bulleter.BoomerOfMe.Points += 5;
                     oucher.gameObject.SetActive(false);
-                    m_RustyHitSound.Play();
+                    m_RustyHitSound[Random.Range(0, m_RustyHitSound.Length)].Play();
                     m_RustyHitParticles.Play();
 
                     maybeSpawnSmashBoru();
