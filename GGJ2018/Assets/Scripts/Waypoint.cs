@@ -25,7 +25,7 @@ public class Waypoint : MonoBehaviour {
             collision.gameObject.transform.SetParent(gameObject.transform, true);
             collision.gameObject.GetComponent<RadioWaveController>().SetWaypoint(NextPoint,PrevPoint);
 
-            m_VirusAbsorbSound.Play();
+            //m_VirusAbsorbSound?.Play();
         }
 
         else if (collision.gameObject.CompareTag("bettermaker"))
@@ -45,11 +45,11 @@ public class Waypoint : MonoBehaviour {
 
         if (box.LastTarget == this)
         {
-            m_PillAbsorbSound.Play();
+            //m_PillAbsorbSound?.Play();
         }
         else
         {
-            m_PillKidnapAbsorbSound.Play();
+            //m_PillKidnapAbsorbSound?.Play();
         }
     }
 
