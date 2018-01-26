@@ -26,6 +26,7 @@ public class Waypoint : MonoBehaviour {
         m_VirusAbsorbSound = sauces[0];
         m_PillAbsorbSound = sauces[1];
         m_PillKidnapAbsorbSound = sauces[2];
+        m_PillAbsorbParticles = GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider collision)
