@@ -44,4 +44,18 @@ public class SmashBoru : MonoBehaviour
             m_CosSign *= -1;
         }
     }
+
+    private void OnTriggerEnter(Collider oucher)
+    {
+        RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
+
+        if (bulleter)
+        {
+            if (bulleter.BoomerOfMe)
+            {
+                gameObject.SetActive(false);
+                oucher.gameObject.SetActive(false);
+            }
+        }
+    }
 }

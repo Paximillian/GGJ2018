@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 135900160464023656}
   - component: {fileID: 114230802340902346}
   - component: {fileID: 54974412754561998}
-  m_Layer: 0
-  m_Name: SmashBall
+  m_Layer: 10
+  m_Name: SmashBoru
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

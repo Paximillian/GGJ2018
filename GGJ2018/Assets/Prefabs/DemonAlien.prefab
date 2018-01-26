@@ -37,7 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4494384709570940}
   - component: {fileID: 114808211316738426}
-  m_Layer: 0
+  - component: {fileID: 136463869299521334}
+  m_Layer: 11
   m_Name: DemonAlien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,4 +124,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46fa5a2c92eab2419dacb95705cc716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenShoostings: 1
+  secondsBetweenShoostings: 5
+--- !u!136 &136463869299521334
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785341642741450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.92
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}

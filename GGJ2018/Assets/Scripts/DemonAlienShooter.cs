@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DemonAlienShooter : MonoBehaviour
 {
@@ -41,8 +42,18 @@ public class DemonAlienShooter : MonoBehaviour
                 {
                     bulleter.BoomerOfMe.Points++;
                     oucher.gameObject.SetActive(false);
+
+                    maybeSpawnSmashBoru();
                 }
             }
+        }
+    }
+
+    private void maybeSpawnSmashBoru()
+    {
+        if(Random.Range(0, 10) == 9)
+        {
+            ObjectPoolManager.PullObject("SmashBoru").transform.position = transform.position;
         }
     }
 }

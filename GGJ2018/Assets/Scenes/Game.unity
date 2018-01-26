@@ -610,11 +610,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114808211316738426, guid: 9946baefc91a2bb41b65be9aa870900c,
-        type: 2}
-      propertyPath: secondsBetweenShoostings
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9946baefc91a2bb41b65be9aa870900c, type: 2}
   m_IsPrefabParent: 0
@@ -1200,11 +1195,19 @@ MonoBehaviour:
   ObjectsToPool:
   - InnerList:
     - {fileID: 1480492794155924, guid: 386cf28d29a7f1f42a36b29d1107e91d, type: 2}
+  - InnerList:
+    - {fileID: 1739734609899258, guid: 89e49537590760740adea6d48876fc3a, type: 2}
+  - InnerList:
+    - {fileID: 1739734609899258, guid: 89e49537590760740adea6d48876fc3a, type: 2}
   ObjectPoolNames:
   - Bullet
+  - SmashBoru
+  - Buffer
   ObjectPoolStartAmounts:
   - InnerList: 32000000
-  SubListSizes: 01000000
+  - InnerList: 02000000
+  - InnerList: 02000000
+  SubListSizes: 010000000100000001000000
 --- !u!4 &1459567786
 Transform:
   m_ObjectHideFlags: 0
@@ -1628,24 +1631,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &1842181592 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1785341642741450, guid: 9946baefc91a2bb41b65be9aa870900c,
-    type: 2}
-  m_PrefabInternal: {fileID: 565304917}
---- !u!136 &1842181593
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1842181592}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.92
-  m_Direction: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1919702297
 GameObject:
   m_ObjectHideFlags: 0
