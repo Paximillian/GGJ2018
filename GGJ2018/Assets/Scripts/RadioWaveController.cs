@@ -12,10 +12,14 @@ public class RadioWaveController : MonoBehaviour {
     public Waypoint LastTarget { get; set; }
     private Waypoint currentTarget;
 
+    [SerializeField]
+    public float spinner = 100f;
+
     static float goweAwayeNum = 1f;
 
     private Vector3 movedir;
 
+    private float rot = 0f;
     private bool? directionInRoute;
     
     [SerializeField]
@@ -70,6 +74,9 @@ public class RadioWaveController : MonoBehaviour {
                 spinnySpeed * Time.deltaTime);
             //transform.right = movedir.normalized;
         }
+
+        rot += Time.deltaTime;
+        transform.Rotate(Vector3.right * rot * spinner);
     }
 
     private void MakeBoomier(List<PathMakerBetterer> bettermakerers, bool knowDaWae) {
