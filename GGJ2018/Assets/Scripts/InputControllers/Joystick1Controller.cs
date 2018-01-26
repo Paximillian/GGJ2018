@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick1Controller : MonoBehaviour {
+public class Joystick1Controller : MonoBehaviour, IDiscController {
+    public float GetHorizontalAxis() {
+        return Input.GetAxis("HorizontalJ1");
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public bool GetJoinButton() {
+        return Input.GetKeyDown("JoinJ1");
+    }
+
+    public float GetRotationAxis() {
+        return Input.GetAxis("RotationJ1");
+    }
+
+    public float GetVerticalAxis() {
+        return Input.GetAxis("VerticalJ1");
+    }
 }

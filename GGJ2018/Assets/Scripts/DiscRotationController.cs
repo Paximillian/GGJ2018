@@ -8,25 +8,6 @@ using Random = UnityEngine.Random;
 
 public class DiscRotationController : MonoBehaviour
 {
-    public enum RotationAxis 
-    {
-        RotationAxis1,
-        RotationAxis2,
-        RotationAxis3,
-        RotationAxis4,
-    }
-
-    public enum MovementAxis {
-        HorizontalAxis1,
-        HorizontalAxis2,
-        HorizontalAxis3,
-        HorizontalAxis4,
-        VerticalAxis1,
-        VerticalAxis2,
-        VerticalAxis3,
-        VerticalAxis4,
-    }
-
     private int m_Points;
     public int Points
     {
@@ -41,7 +22,7 @@ public class DiscRotationController : MonoBehaviour
             if (m_MahPointz)
             {
                 m_MahPointz.text = string.Format("Player {0}: {1}",
-                    int.Parse(m_rotationAxis.ToString().Last().ToString()),
+                    2,
                     m_Points);
             }
         }
@@ -54,16 +35,7 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     [Range(1, 100)]
     private float m_movementSpeed;
-
-    [SerializeField]
-    private RotationAxis m_rotationAxis;
-
-    [SerializeField]
-    private MovementAxis m_horizontalAxis;
-
-    [SerializeField]
-    private MovementAxis m_verticalAxis;
-
+    
     [SerializeField]
     private Text m_MahPointz;
 
@@ -74,12 +46,10 @@ public class DiscRotationController : MonoBehaviour
 
     [SerializeField]
     private ParticleSystem m_PlayerHitParticles;
-
-    private string m_rotationAxisName;
-    private string m_horizontalAxisName;
-    private string m_verticalAxisName;
-
+    
     private GameObject m_DiscModel;
+
+    private IDiscController m_discInputController;
 
     private void Awake()
     {
@@ -89,10 +59,6 @@ public class DiscRotationController : MonoBehaviour
         }
         else
         {
-            m_rotationAxisName = m_rotationAxis.ToString();
-            m_horizontalAxisName = m_horizontalAxis.ToString();
-            m_verticalAxisName = m_verticalAxis.ToString();
-
             if (m_MahPointz)
             {
                 m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
@@ -143,10 +109,10 @@ public class DiscRotationController : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
+        transform.Rotate(0, 0, m_discInputController.GetRotationAxis() * m_rotationSpeed * Time.deltaTime);
 
-        transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
-                            Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
+        transform.Translate(m_discInputController.GetHorizontalAxis() * m_movementSpeed * Time.deltaTime,
+                            m_discInputController.GetVerticalAxis() * m_movementSpeed * Time.deltaTime,
                             0, Space.World);
     }
 
