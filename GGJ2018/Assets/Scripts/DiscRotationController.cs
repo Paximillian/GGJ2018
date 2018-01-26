@@ -103,10 +103,15 @@ public class DiscRotationController : MonoBehaviour
     {
         if (oucher.gameObject.layer == LayerMask.NameToLayer("Bulleter"))
         {
-            if (!oucher.GetComponent<RadioWaveController>().IsDirected)
+            RadioWaveController bulleter = oucher.GetComponent<RadioWaveController>();
+
+            if (!bulleter.IsDirected)
             {
-                Points--;
-                oucher.gameObject.SetActive(false);
+                if (!bulleter.LastLauncher.Equals(this))
+                {
+                    Points--;
+                    oucher.gameObject.SetActive(false);
+                }
             }
         }
     }
