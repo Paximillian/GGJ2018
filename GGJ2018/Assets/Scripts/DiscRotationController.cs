@@ -128,8 +128,10 @@ public class DiscRotationController : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, m_discInputController.GetRotationAxis() * m_rotationSpeed * Time.deltaTime);
-	if(Input.GetAxis(m_rotationAxisName) > 0)
+        float rotationAxisVal = m_discInputController.GetRotationAxis();
+
+        transform.Rotate(0, 0, rotationAxisVal * m_rotationSpeed * Time.deltaTime);
+	    if(rotationAxisVal > 0)
         {
             if (!m_SpinRight.isPlaying) { m_SpinRight.Play(); }
         }
@@ -138,7 +140,7 @@ public class DiscRotationController : MonoBehaviour
             m_SpinRight.Stop();
         }
 
-        if (Input.GetAxis(m_rotationAxisName) < 0)
+        if (rotationAxisVal < 0)
         {
             if (!m_SpinLeft.isPlaying) { m_SpinLeft.Play(); }
         }
@@ -146,8 +148,9 @@ public class DiscRotationController : MonoBehaviour
         {
             m_SpinLeft.Stop();
         }
-        transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
-                            Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
+
+        transform.Translate(m_discInputController.GetHorizontalAxis() * m_movementSpeed * Time.deltaTime,
+                            m_discInputController.GetVerticalAxis() * m_movementSpeed * Time.deltaTime,
                             0, Space.World);
     }
 
