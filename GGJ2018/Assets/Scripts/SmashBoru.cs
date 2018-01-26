@@ -13,6 +13,9 @@ public class SmashBoru : MonoBehaviour
     [SerializeField]
     private AudioSource m_SpawnSound;
 
+    [SerializeField]
+    private ParticleSystem m_SpawnParticles;
+
     private void Awake()
     {
         StartCoroutine(swapper());
@@ -21,6 +24,7 @@ public class SmashBoru : MonoBehaviour
     private void OnEnable()
     {
         m_SpawnSound.Play();
+        m_SpawnParticles.Play();
     }
 
     private IEnumerator swapper()

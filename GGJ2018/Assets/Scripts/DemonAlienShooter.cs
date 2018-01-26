@@ -16,6 +16,12 @@ public class DemonAlienShooter : MonoBehaviour
     [SerializeField]
     private AudioSource m_RustyHitSound;
 
+    [SerializeField]
+    private ParticleSystem m_RustySpawnParticles;
+
+    [SerializeField]
+    private ParticleSystem m_RustyHitParticles;
+
     private void Start()
     {
         StartCoroutine(shootDemBulletz());
@@ -37,6 +43,7 @@ public class DemonAlienShooter : MonoBehaviour
         bullet.transform.position = transform.position;
 
         m_RustySpawnSound.Play();
+        m_RustySpawnParticles.Play();
     }
 
     private void OnTriggerEnter(Collider oucher)
@@ -51,6 +58,7 @@ public class DemonAlienShooter : MonoBehaviour
                     bulleter.BoomerOfMe.Points += 5;
                     oucher.gameObject.SetActive(false);
                     m_RustyHitSound.Play();
+                    m_RustyHitParticles.Play();
 
                     maybeSpawnSmashBoru();
                 }

@@ -72,6 +72,9 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     private AudioSource m_BumpSound;
 
+    [SerializeField]
+    private ParticleSystem m_PlayerHitParticles;
+
     private string m_rotationAxisName;
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
@@ -157,6 +160,7 @@ public class DiscRotationController : MonoBehaviour
             {
                 if ((!bulleter.BoomerOfMe?.Equals(this)) ?? true)
                 {
+                    m_PlayerHitParticles.Play();
                     Points--;
                     oucher.gameObject.SetActive(false);
                     StartCoroutine(iCanHazDisc());

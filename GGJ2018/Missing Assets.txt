@@ -18,13 +18,13 @@ Visuals:
 - Background for end menu.
 - More disc shapes.
 - Particles:
--- Rusty spawns a virus.
--- Rusty getting hit.
--- Player shooting a virus.
--- Bonus pill float trail.
--- Virus moving inside tunnel(?)
--- Bonus pill explodes.
--- Bonus pill spawns.
+-- Rusty spawns a virus. v
+-- Rusty getting hit. v
+-- Player shooting a virus. v
+-- Player getting hit. v
+-- Bonus pill float trail. v
+-- Bonus pill explodes. v
+-- Bonus pill spawns. v
 -- Bonus pill content absorbed.
 
 Coding:

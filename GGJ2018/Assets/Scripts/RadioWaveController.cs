@@ -27,7 +27,10 @@ public class RadioWaveController : MonoBehaviour {
     private AudioSource m_SpawnSound;
 
     [SerializeField]
-    private AudioSource m_ShootSound;
+    private AudioSource m_PlayerShootSound;
+
+    [SerializeField]
+    private ParticleSystem m_PlayerShootParticles;
 
     public DiscRotationController BoomerOfMe { get; private set; }
 
@@ -57,6 +60,7 @@ public class RadioWaveController : MonoBehaviour {
         speed = m_InitialSpeed;
 
         m_SpawnSound.Play();
+        m_PlayerShootParticles.Play();
     }
 
     // Update is called once per frame
@@ -116,7 +120,7 @@ public class RadioWaveController : MonoBehaviour {
             MakeBoomier(((!directionInRoute.Value) ? targetForwards : targetBackwards).boxOfMakerBetterers, true);
             movedir = (currentTarget.transform.position - LastTarget.transform.position).normalized * goweAwayeNum;
 
-            m_ShootSound.Play();
+            m_PlayerShootSound.Play();
         }
 
         LastTarget = currentTarget;

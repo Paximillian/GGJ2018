@@ -13,6 +13,9 @@ public class Waypoint : MonoBehaviour {
     [SerializeField]
     private AudioSource m_PillKidnapAbsorbSound;
 
+    [SerializeField]
+    private ParticleSystem m_PillAbsorbParticles;
+
     public Waypoint NextPoint;
     public Waypoint PrevPoint;
 
@@ -26,6 +29,7 @@ public class Waypoint : MonoBehaviour {
             collision.gameObject.GetComponent<RadioWaveController>().SetWaypoint(NextPoint,PrevPoint);
 
             m_VirusAbsorbSound.Play();
+            m_PillAbsorbParticles.Play();
         }
 
         else if (collision.gameObject.CompareTag("bettermaker"))
