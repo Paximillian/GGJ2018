@@ -75,6 +75,12 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     private ParticleSystem m_PlayerHitParticles;
 
+    [SerializeField]
+    private AudioSource m_SpinLeft;
+
+    [SerializeField]
+    private AudioSource m_SpinRight;
+
     private string m_rotationAxisName;
     private string m_horizontalAxisName;
     private string m_verticalAxisName;
@@ -146,6 +152,24 @@ public class DiscRotationController : MonoBehaviour
     private void Update()
     {
         transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
+
+        if(Input.GetAxis(m_rotationAxisName) > 0)
+        {
+            if (!m_SpinRight.isPlaying) { m_SpinRight.Play(); }
+        }
+        else
+        {
+            m_SpinRight.Stop();
+        }
+
+        if (Input.GetAxis(m_rotationAxisName) < 0)
+        {
+            if (!m_SpinLeft.isPlaying) { m_SpinLeft.Play(); }
+        }
+        else
+        {
+            m_SpinLeft.Stop();
+        }
 
         transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
                             Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
