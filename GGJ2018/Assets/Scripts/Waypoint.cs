@@ -20,6 +20,14 @@ public class Waypoint : MonoBehaviour {
     public Waypoint PrevPoint;
     public DiscRotationController holderOfMe;
 
+    private void Start()
+    {
+        AudioSource[] sauces = GetComponents<AudioSource>();
+        m_VirusAbsorbSound = sauces[0];
+        m_PillAbsorbSound = sauces[1];
+        m_PillKidnapAbsorbSound = sauces[2];
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("wave"))
