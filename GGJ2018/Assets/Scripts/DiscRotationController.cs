@@ -8,25 +8,6 @@ using Random = UnityEngine.Random;
 
 public class DiscRotationController : MonoBehaviour
 {
-    public enum RotationAxis 
-    {
-        RotationAxis1,
-        RotationAxis2,
-        RotationAxis3,
-        RotationAxis4,
-    }
-
-    public enum MovementAxis {
-        HorizontalAxis1,
-        HorizontalAxis2,
-        HorizontalAxis3,
-        HorizontalAxis4,
-        VerticalAxis1,
-        VerticalAxis2,
-        VerticalAxis3,
-        VerticalAxis4,
-    }
-
     private int m_Points;
     public int Points
     {
@@ -41,11 +22,22 @@ public class DiscRotationController : MonoBehaviour
             if (m_MahPointz)
             {
                 m_MahPointz.text = string.Format("Player {0}: {1}",
-                    int.Parse(m_rotationAxis.ToString().Last().ToString()),
+                    myPlayerNumber,
                     m_Points);
             }
         }
     }
+
+    public int MyPlayerNumber
+    {
+        get
+        {
+            return myPlayerNumber;
+        }
+    }
+
+    [SerializeField]
+    private int m_Death;
 
     [SerializeField]
     [Range(10, 1000)]
@@ -54,16 +46,7 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     [Range(1, 100)]
     private float m_movementSpeed;
-
-    [SerializeField]
-    private RotationAxis m_rotationAxis;
-
-    [SerializeField]
-    private MovementAxis m_horizontalAxis;
-
-    [SerializeField]
-    private MovementAxis m_verticalAxis;
-
+    
     [SerializeField]
     private Text m_MahPointz;
 
@@ -75,13 +58,24 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     private ParticleSystem m_PlayerHitParticles;
 
-    private string m_rotationAxisName;
-    private string m_horizontalAxisName;
-    private string m_verticalAxisName;
+    [SerializeField]
+    private AudioSource m_SpinLeft;
+
+    [SerializeField]
+    private AudioSource m_SpinRight;
+
+
+
 
     public List<PathMakerBetterer> boxOfMakerBetterers = new List<PathMakerBetterer>();
 
     private GameObject m_DiscModel;
+
+    private IDiscController m_discInputController;
+
+    private static int playerNumberTracker = 0;
+    
+    private int myPlayerNumber;
 
     private void Awake()
     {
@@ -91,14 +85,17 @@ public class DiscRotationController : MonoBehaviour
         }
         else
         {
-            m_rotationAxisName = m_rotationAxis.ToString();
-            m_horizontalAxisName = m_horizontalAxis.ToString();
-            m_verticalAxisName = m_verticalAxis.ToString();
+            myPlayerNumber = ++playerNumberTracker;
+            m_discInputController = MyPrecious.Instance.JoinedControllers[myPlayerNumber];
+
+            Debug.Log(m_discInputController);
 
             if (m_MahPointz)
             {
                 m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
             }
+
+            MyPrecious.Instance.playersThatAreAlive.Add(this);
 
             Points = 0;
         }
@@ -145,11 +142,45 @@ public class DiscRotationController : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, Input.GetAxis(m_rotationAxisName) * m_rotationSpeed * Time.deltaTime);
+        float rotationAxisVal = m_discInputController.GetRotationAxis();
 
-        transform.Translate(Input.GetAxis(m_horizontalAxisName) * m_movementSpeed * Time.deltaTime,
-                            Input.GetAxis(m_verticalAxisName) * m_movementSpeed * Time.deltaTime,
+        transform.Rotate(0, 0, rotationAxisVal * m_rotationSpeed * Time.deltaTime);
+	    if(rotationAxisVal > 0)
+        {
+            if (!m_SpinRight.isPlaying) { m_SpinRight.Play(); }
+        }
+        else
+        {
+            m_SpinRight.Stop();
+        }
+
+        if (rotationAxisVal < 0)
+        {
+            if (!m_SpinLeft.isPlaying) { m_SpinLeft.Play(); }
+        }
+        else
+        {
+            m_SpinLeft.Stop();
+        }
+
+        transform.Translate(m_discInputController.GetHorizontalAxis() * m_movementSpeed * Time.deltaTime,
+                            m_discInputController.GetVerticalAxis() * m_movementSpeed * Time.deltaTime,
                             0, Space.World);
+        if (m_Points <= m_Death)
+        {
+            itsDeadJimTakeItsStuff();
+        }
+        if (m_Points >= MyPrecious.Instance.PointsToWin)
+        {
+            MyPrecious.Instance.ggEZ(myPlayerNumber);
+        }
+    }
+
+    private void itsDeadJimTakeItsStuff()
+    {
+        gameObject.SetActive(false);
+        MyPrecious.Instance.playersThatAreAlive.Remove(this);
+        MyPrecious.Instance.ggEZ();
     }
 
     private void OnTriggerEnter(Collider oucher)
