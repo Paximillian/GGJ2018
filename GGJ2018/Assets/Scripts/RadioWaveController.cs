@@ -32,10 +32,7 @@ public class RadioWaveController : MonoBehaviour {
 
     [SerializeField]
     private AudioSource m_PlayerShootSound;
-
-    [SerializeField]
-    private ParticleSystem m_PlayerShootParticles;
-
+    
     public DiscRotationController BoomerOfMe { get; private set; }
 
     public DiscRotationController masterWhoGaveSock { get; private set; }
@@ -96,7 +93,6 @@ public class RadioWaveController : MonoBehaviour {
         speed = m_InitialSpeed;
 
         m_SpawnSound.Play();
-        m_PlayerShootParticles.Play();
     }
 
     // Update is called once per frame

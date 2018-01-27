@@ -1,13 +1,13 @@
 Sound:
-- Background music for menu. v
-- Background music for game. v
+- Background music for menu. vv
+- Background music for game. vv
 - Rusty spawns a virus. v
-- Rusty getting hit. v
+- Rusty getting hit. vv
 - Player spawn (Getting hit invokes this also). v
 - Player sucking in a virus. v
-- Player shooting a virus.
+- Player shooting a virus. v
 - Player bump into solid object (Collision with another player/stage limits/rusty). v
-- Bonus pill spawn. v
+- Bonus pill spawn. vv
 - Bonus pill hit/open. v
 - Bonus pill content absorbed by player. v
 - Bonus pill content intercepted by another player. v
@@ -29,7 +29,7 @@ Visuals:
 -- Bonus pill content absorbed.
 
 Coding:
-- Control scheme selection. v
-- Win condition. v
+- Control scheme selection. vv
+- Win condition. vv
 - End game menu.
 - MOAR BUFFS

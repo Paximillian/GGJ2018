@@ -13,7 +13,7 @@ public class MyPrecious : Singleton<MyPrecious>
     [Range(1, 100)]
     private int m_pointsToWin;
 
-    private int winnerWinnerChickenDinner;
+    public int winnerWinnerChickenDinner;
 
     private IDiscController[] m_standbyControllers =
     {
@@ -78,4 +78,30 @@ public class MyPrecious : Singleton<MyPrecious>
         }
     }
 
+    public string HowEZ()
+    {
+        float ezScore = 0;
+        float maxPointsDiff = (PointsToWin + Mathf.Abs(playersThatAreAlive[winnerWinnerChickenDinner].PointsToDie));
+        ezScore += (JoinedControllers.Count - playersThatAreAlive.Count) * maxPointsDiff;
+
+        foreach(DiscRotationController playah in playersThatAreAlive)
+        {
+            ezScore += playersThatAreAlive[winnerWinnerChickenDinner].Points - playah.Points;
+        }
+
+        float maxEzScore = ((JoinedControllers.Count - 1) * 10) + maxPointsDiff;
+
+        if((ezScore / maxEzScore) > 0.6f)
+        {
+            return "EZ";
+        }
+        else if ((ezScore / maxEzScore) > 0.3f)
+        {
+            return "Medium";
+        }
+        else
+        {
+            return "Hard";
+        }
+    }
 }
