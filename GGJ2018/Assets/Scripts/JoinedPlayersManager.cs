@@ -13,6 +13,17 @@ public class JoinedPlayersManager : MonoBehaviour
 
     public Text PressKeyToJoinText;
 
+    [Header("Sprites")]
+
+    [SerializeField]
+    Sprite m_keyboardSprite;
+
+    [SerializeField]
+    Sprite m_joystickSprite;
+
+    [SerializeField]
+    Sprite m_mouseSprite;
+
     private void Awake()
     {
         data = MyPrecious.Instance;
@@ -31,12 +42,30 @@ public class JoinedPlayersManager : MonoBehaviour
                 data.NumberOfPlayers++;
                 data.JoinedControllers.Add(data.NumberOfPlayers, controller);
                 
-                Instantiate<GameObject>(PlayerIconPrefab, transform);
+                GameObject gameObject = Instantiate<GameObject>(PlayerIconPrefab, transform);
+                ControllerIconFeeder feeder = gameObject.GetComponent<ControllerIconFeeder>();
+                if (feeder != null) {
+                    feeder.SetControllerText((controller as ControllerPapa)?.Name);
 
-                if (data.NumberOfPlayers == 4) {
-                    PressKeyToJoinText.gameObject.SetActive(false);
+                    switch ((controller as ControllerPapa).Type) {
+                        case ControllerPapa.ControllerType.keyboard:
+                            feeder.SetSprite(m_keyboardSprite);
+                            break;
+                        case ControllerPapa.ControllerType.joystick:
+                            feeder.SetSprite(m_joystickSprite);
+                            break;
+                        case ControllerPapa.ControllerType.mouse:
+                            feeder.SetSprite(m_mouseSprite);
+                            break;
+                    }
+
+                    feeder.SetPlayerText($"Player {data.NumberOfPlayers}");
+
+                    if (data.NumberOfPlayers == 4) {
+                        PressKeyToJoinText.GetComponent<Text>().enabled = false;
+                }
                 }
             }
-        } 
+        }
     }
 }

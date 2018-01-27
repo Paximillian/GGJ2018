@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick3Controller : IDiscController 
+public class Joystick3Controller : ControllerPapa, IDiscController 
 {
+    public Joystick3Controller(ControllerType type, string name) : base(type, name) {
+    }
+
     public float GetHorizontalAxis() {
         return Input.GetAxis("HorizontalAxisJ3");
     }

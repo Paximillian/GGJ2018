@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ControllerPapa;
 
 public class MyPrecious : Singleton<MyPrecious> 
 {
@@ -12,24 +13,23 @@ public class MyPrecious : Singleton<MyPrecious>
     [Range(1, 100)]
     private int m_pointsToWin;
 
-    private int winnerWinnerChickenDinner;
+    public int winnerWinnerChickenDinner;
 
     private IDiscController[] m_standbyControllers =
     {
-        new Keyboard1Controller(),
-        new Keyboard2Controller(),
-        //new MouseController(),
-        new Joystick1Controller(),
-        new Joystick2Controller(),
-        new Joystick3Controller(),
-        new Joystick4Controller(),
+        new Keyboard1Controller(ControllerType.keyboard, "Keyboard 1"),
+        new Keyboard2Controller(ControllerType.keyboard, "Keyboard 2"),
+        new MouseController(ControllerType.mouse, "Mouse"),
+        new Joystick1Controller(ControllerType.joystick, "Joystick 1"),
+        new Joystick2Controller(ControllerType.joystick, "Joystick 2"),
+        new Joystick3Controller(ControllerType.joystick, "Joystick 3"),
+        new Joystick4Controller(ControllerType.joystick, "Joystick 4"),
     };
 
     public IDiscController[] StandbyControllers {
         get {
             return m_standbyControllers;
         }
-
         set {
             m_standbyControllers = value;
         }

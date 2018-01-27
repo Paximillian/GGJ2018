@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Keyboard1Controller : IDiscController {
+public class Keyboard1Controller : ControllerPapa, IDiscController {
+    public Keyboard1Controller(ControllerType type, string name) : base(type, name) {
+    }
+
     public float GetHorizontalAxis() {
         return Input.GetAxis("HorizontalAxisK1");
     }
