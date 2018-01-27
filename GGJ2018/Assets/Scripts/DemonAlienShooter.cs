@@ -21,6 +21,13 @@ public class DemonAlienShooter : MonoBehaviour
 
     [SerializeField]
     private GameObject RustySpoon;
+    
+    private Animator m_Animator;
+
+    private void Awake()
+    {
+        m_Animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -43,6 +50,7 @@ public class DemonAlienShooter : MonoBehaviour
         bullet.transform.position = RustySpoon.transform.position;
         StartCoroutine(SpinRustySpin(bullet));
         m_RustySpawnSound.Play();
+        m_Animator.SetTrigger("shoot");
     }
 
     private IEnumerator SpinRustySpin(RadioWaveController bullet) {
@@ -66,6 +74,7 @@ public class DemonAlienShooter : MonoBehaviour
                     m_RustyHitParticles.gameObject.SetActive(true);
                     m_RustyHitParticles.transform.position = bulleter.transform.position;
                     m_RustyHitParticles.Play();
+                    m_Animator.SetTrigger("hit");
 
                     StartCoroutine(stopHittingMe());
 
