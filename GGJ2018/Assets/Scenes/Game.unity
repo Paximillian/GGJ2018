@@ -3931,11 +3931,6 @@ Prefab:
     - {fileID: 198870240349928592, guid: 9946baefc91a2bb41b65be9aa870900c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9946baefc91a2bb41b65be9aa870900c, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &892188100 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4494384709570940, guid: 9946baefc91a2bb41b65be9aa870900c,
-    type: 2}
-  m_PrefabInternal: {fileID: 892188099}
 --- !u!1 &940809313
 GameObject:
   m_ObjectHideFlags: 0

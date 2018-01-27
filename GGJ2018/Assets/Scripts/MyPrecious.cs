@@ -37,6 +37,15 @@ public class MyPrecious : Singleton<MyPrecious>
         }
     }
 
+
+    private void Update() {
+        if (Input.GetKey(KeyCode.Return)) 
+        {
+            if (NumberOfPlayers >= 2) {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+            }
+        }
+    }
     public List<DiscRotationController> playersThatAreAlive;
 
     private DiscRotationController m_VictoriousPlayer;

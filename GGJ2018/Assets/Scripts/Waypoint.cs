@@ -12,10 +12,7 @@ public class Waypoint : MonoBehaviour {
 
     [SerializeField]
     private AudioSource m_PillKidnapAbsorbSound;
-
-    [SerializeField]
-    private ParticleSystem m_PillAbsorbParticles;
-
+    
     public Waypoint NextPoint;
     public Waypoint PrevPoint;
     public DiscRotationController holderOfMe;
@@ -26,7 +23,6 @@ public class Waypoint : MonoBehaviour {
         m_VirusAbsorbSound = sauces[0];
         m_PillAbsorbSound = sauces[1];
         m_PillKidnapAbsorbSound = sauces[2];
-        m_PillAbsorbParticles = GetComponent<ParticleSystem>();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -37,7 +33,6 @@ public class Waypoint : MonoBehaviour {
             collision.gameObject.GetComponent<RadioWaveController>().SetWaypoint(NextPoint,PrevPoint);
 
             m_VirusAbsorbSound.Play();
-            m_PillAbsorbParticles.Play();
         }
 
         else if (collision.gameObject.CompareTag("bettermaker"))
