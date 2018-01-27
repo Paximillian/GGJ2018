@@ -589,6 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a77edcf4de4f904b9ab71b66589328f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spoon: {fileID: 0}
+  slider: {fileID: 0}
 --- !u!224 &558176470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -745,7 +747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: <color=yellow>S</color>wish <color=yellow>T</color>ransrusty <color=yellow>D</color>iseases
+  m_Text: <color=yellow>S.</color>ave <color=yellow>T.</color>he <color=yellow>D.</color>ay
 --- !u!222 &1170887068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1517,15 +1519,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6058823, g: 0.5735294, b: 1, a: 1}
+  m_Color: {r: 0.1748597, g: 0.11678202, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 263c6cf69763ec148b283e07277ce82e, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 92308a7d7d54219428e7b5d008b93bd1, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
