@@ -13,6 +13,8 @@ public class MyPrecious : Singleton<MyPrecious>
     [Range(1, 100)]
     private int m_pointsToWin;
 
+    private int winnerWinnerChickenDinner;
+
     private IDiscController[] m_standbyControllers =
     {
         new Keyboard1Controller(ControllerType.keyboard, "Keyboard 1"),
@@ -32,6 +34,8 @@ public class MyPrecious : Singleton<MyPrecious>
             m_standbyControllers = value;
         }
     }
+
+    public List<DiscRotationController> playersThatAreAlive;
 
     private Dictionary<int, IDiscController> m_joinedControllers =  new Dictionary<int, IDiscController>();
 
@@ -55,4 +59,23 @@ public class MyPrecious : Singleton<MyPrecious>
         get { return m_pointsToWin; }
         set { m_pointsToWin = value; }
     }
+
+    public void ggEZ(int playerNumber = -1)
+    {
+        //Somone Died
+        if (playerNumber == -1)
+        {
+            if (playersThatAreAlive.Count == 1)
+            {
+                winnerWinnerChickenDinner = playersThatAreAlive[0].MyPlayerNumber;
+                UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
+            }
+        }
+        else //we know who won 
+        {
+            winnerWinnerChickenDinner = playerNumber;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
+        }
+    }
+
 }

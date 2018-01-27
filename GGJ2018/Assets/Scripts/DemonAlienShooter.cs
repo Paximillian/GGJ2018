@@ -58,12 +58,23 @@ public class DemonAlienShooter : MonoBehaviour
                     bulleter.BoomerOfMe.Points += 5;
                     oucher.gameObject.SetActive(false);
                     m_RustyHitSound[Random.Range(0, m_RustyHitSound.Length)].Play();
+                    m_RustyHitParticles.gameObject.SetActive(true);
+                    m_RustyHitParticles.transform.position = bulleter.transform.position;
                     m_RustyHitParticles.Play();
+
+                    StartCoroutine(stopHittingMe());
 
                     maybeSpawnSmashBoru();
                 }
             }
         }
+    }
+
+    private IEnumerator stopHittingMe()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        m_RustyHitParticles.gameObject.SetActive(false);
     }
 
     private void maybeSpawnSmashBoru()

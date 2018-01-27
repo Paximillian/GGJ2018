@@ -28,6 +28,17 @@ public class DiscRotationController : MonoBehaviour
         }
     }
 
+    public int MyPlayerNumber
+    {
+        get
+        {
+            return myPlayerNumber;
+        }
+    }
+
+    [SerializeField]
+    private int m_Death;
+
     [SerializeField]
     [Range(10, 1000)]
     private float m_rotationSpeed;
@@ -45,13 +56,11 @@ public class DiscRotationController : MonoBehaviour
     private AudioSource m_BumpSound;
 
     [SerializeField]
-    private ParticleSystem m_PlayerHitParticles;
-
-    [SerializeField]
     private AudioSource m_SpinLeft;
 
     [SerializeField]
     private AudioSource m_SpinRight;
+
 
 
 
@@ -82,6 +91,8 @@ public class DiscRotationController : MonoBehaviour
             {
                 m_MahPointz.transform.SetParent(ScoreContainer.Instance.transform);
             }
+
+            MyPrecious.Instance.playersThatAreAlive.Add(this);
 
             Points = 0;
         }
@@ -118,7 +129,7 @@ public class DiscRotationController : MonoBehaviour
         m_DiscModel.transform.localPosition = Vector3.zero;
 
         transform.rotation = Quaternion.AngleAxis(Random.Range(0f, 360f), Vector3.forward);
-
+        
         m_SpawnSound.Play();
     }
 
@@ -152,6 +163,21 @@ public class DiscRotationController : MonoBehaviour
         transform.Translate(m_discInputController.GetHorizontalAxis() * m_movementSpeed * Time.deltaTime,
                             m_discInputController.GetVerticalAxis() * m_movementSpeed * Time.deltaTime,
                             0, Space.World);
+        if (m_Points <= m_Death)
+        {
+            itsDeadJimTakeItsStuff();
+        }
+        if (m_Points >= MyPrecious.Instance.PointsToWin)
+        {
+            MyPrecious.Instance.ggEZ(myPlayerNumber);
+        }
+    }
+
+    private void itsDeadJimTakeItsStuff()
+    {
+        gameObject.SetActive(false);
+        MyPrecious.Instance.playersThatAreAlive.Remove(this);
+        MyPrecious.Instance.ggEZ();
     }
 
     private void OnTriggerEnter(Collider oucher)
@@ -164,7 +190,8 @@ public class DiscRotationController : MonoBehaviour
             {
                 if ((!bulleter.BoomerOfMe?.Equals(this)) ?? true)
                 {
-                    m_PlayerHitParticles.Play();
+                    PlayerHitParticles.Instance.transform.position = bulleter.transform.position;
+                    PlayerHitParticles.Instance.Play();
                     Points--;
                     oucher.gameObject.SetActive(false);
                     StartCoroutine(iCanHazDisc());

@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main menu.unity
     guid: 0214eb818578826418b93222f41970e6
-  - enabled: 1
-    path: Assets/Scenes/Playeryz.unity
-    guid: bb4eea6ffd4229b469d37587fd34eb73
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 1d38e867d82770844aa516c9038cdd4c
+  - enabled: 1
+    path: Assets/Scenes/WinnerWinnerChickenDinner.unity
+    guid: 4d13ebd8262905a4cb653c6168c64995
