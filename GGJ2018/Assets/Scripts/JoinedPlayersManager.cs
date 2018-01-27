@@ -37,8 +37,6 @@ public class JoinedPlayersManager : MonoBehaviour
                 && !data.JoinedControllers.ContainsValue(controller) 
                 && controller.GetJoinKeyDown())
             {
-                StartGameButton.interactable = true;
-
                 data.NumberOfPlayers++;
                 data.JoinedControllers.Add(data.NumberOfPlayers, controller);
                 
@@ -60,6 +58,10 @@ public class JoinedPlayersManager : MonoBehaviour
                     }
 
                     feeder.SetPlayerText($"Player {data.NumberOfPlayers}");
+
+                    if (data.NumberOfPlayers == 2) {
+                        StartGameButton.interactable = true; 
+                    }
 
                     if (data.NumberOfPlayers == 4) {
                         PressKeyToJoinText.GetComponent<Text>().enabled = false;
