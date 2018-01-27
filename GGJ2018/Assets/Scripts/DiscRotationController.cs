@@ -38,6 +38,7 @@ public class DiscRotationController : MonoBehaviour
 
     [SerializeField]
     private int m_Death;
+    public int PointsToDie { get { return m_Death; } }
 
     [SerializeField]
     [Range(10, 1000)]
