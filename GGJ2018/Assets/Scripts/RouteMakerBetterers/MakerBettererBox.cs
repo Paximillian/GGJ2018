@@ -11,13 +11,16 @@ public class MakerBettererBox : RadioWaveController
 
     private void OnEnable()
     {
-        int numberOfBetererer = Random.Range(0, 2);
+        int numberOfBetererer = Random.Range(0, 3);
         switch (numberOfBetererer) {
             case 0:
                 insides = new BulleterFasterer();
                 break;
             case 1:
                 insides = new WaeSlowerer();
+                break;
+            case 2:
+                insides = new OuchiererMorrerer();
                 break;
             default:
                 break;

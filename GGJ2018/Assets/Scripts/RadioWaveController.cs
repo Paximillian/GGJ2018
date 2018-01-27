@@ -50,16 +50,48 @@ public class RadioWaveController : MonoBehaviour {
 
     private void OnEnable()
     {
-        iCanHazStartValuezPl0x();
+        iCanHazStartValuezPl0x(Vector3.zero);
     }
 
-    private void iCanHazStartValuezPl0x()
+    public IEnumerator LeadToWaeInDueTime(float spreadAngleMin = 0f, float spreadAngleMax = 0f) {
+
+        yield return new WaitForEndOfFrame();
+
+        iCanHazStartValuezPl0x(Vector3.zero ,spreadAngleMin, spreadAngleMax);
+    }
+
+    public void Reproduce(float minWaethere, float maxWaethere) {
+        StartCoroutine(MakeShootieAfterTimey(minWaethere, maxWaethere));
+    }
+
+    private IEnumerator MakeShootieAfterTimey(float minWaethere, float maxWaethere)
     {
-        float angle = Random.Range(-firstAngleOfShoostings, firstAngleOfShoostings);
-        movedir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.down;
+        yield return new WaitForSeconds(0.5f);
+        RadioWaveController bulletier = ObjectPoolManager.PullObject("Bullet").GetComponent<RadioWaveController>();
+        bulletier.transform.position = transform.position;
+        int howMucher = ((Random.Range(0, 1)) * 2) - 1;
+        bulletier.iCanHazStartValuezPl0x(movedir, minWaethere * howMucher, maxWaethere * howMucher, this);
+    }
+
+    public void iCanHazStartValuezPl0x(Vector3 someVectorThatIUsedToKnow, float spreadAngleMin = 0f, float spreadAngleMax = 0f, RadioWaveController lastiestlastthatlasts = null)
+    {
+        float angle;
+        if (spreadAngleMin == 0f && spreadAngleMax == 0f) {
+            angle = Random.Range(-firstAngleOfShoostings, firstAngleOfShoostings);
+        }
+        else {
+            angle = Random.Range(spreadAngleMin, spreadAngleMax);
+        }
+        if (someVectorThatIUsedToKnow == Vector3.zero) {
+            movedir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.down;
+        }
+        else {
+            movedir = Quaternion.AngleAxis(angle, Vector3.forward) * someVectorThatIUsedToKnow;
+        }
         BoomerOfMe = null;
         directionInRoute = null;
-        LastTarget = null;
+        LastTarget = lastiestlastthatlasts?.LastTarget;
+        BoomerOfMe = lastiestlastthatlasts?.BoomerOfMe;
         currentTarget = null;
         speed = m_InitialSpeed;
 
