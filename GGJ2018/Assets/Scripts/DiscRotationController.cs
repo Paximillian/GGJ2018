@@ -74,7 +74,7 @@ public class DiscRotationController : MonoBehaviour
 
     private IDiscController m_discInputController;
 
-    private static int playerNumberTracker = 0;
+    public static int playerNumberTracker = 0;
     
     private int myPlayerNumber;
 

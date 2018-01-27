@@ -17,7 +17,7 @@ public class MyPrecious : Singleton<MyPrecious>
 
     public int winnerWinnerChickenDinner;
 
-    private IDiscController[] m_standbyControllers =
+    private List<IDiscController> m_standbyControllers = new List<IDiscController>()
     {
         new Keyboard1Controller(ControllerType.keyboard, "Keyboard 1"),
         new Keyboard2Controller(ControllerType.keyboard, "Keyboard 2"),
@@ -28,7 +28,7 @@ public class MyPrecious : Singleton<MyPrecious>
         new Joystick4Controller(ControllerType.joystick, "Joystick 4"),
     };
 
-    public IDiscController[] StandbyControllers {
+    public List<IDiscController> StandbyControllers {
         get {
             return m_standbyControllers;
         }
@@ -73,6 +73,25 @@ public class MyPrecious : Singleton<MyPrecious>
         set { m_pointsToWin = value; }
     }
 
+    public void init() 
+    {
+        NumberOfPlayers = 0;
+
+        DiscRotationController.playerNumberTracker = 0;
+
+        m_joinedControllers = new Dictionary<int, IDiscController>();
+        m_standbyControllers = new List<IDiscController>()
+        {
+            new Keyboard1Controller(ControllerType.keyboard, "Keyboard 1"),
+            new Keyboard2Controller(ControllerType.keyboard, "Keyboard 2"),
+            //new MouseController(ControllerType.mouse, "Mouse"),
+            new Joystick1Controller(ControllerType.joystick, "Joystick 1"),
+            new Joystick2Controller(ControllerType.joystick, "Joystick 2"),
+            new Joystick3Controller(ControllerType.joystick, "Joystick 3"),
+            new Joystick4Controller(ControllerType.joystick, "Joystick 4"),
+        };
+    }
+
     public void ggEZ(int playerNumber = -1)
     {
         //Somone Died
@@ -83,6 +102,7 @@ public class MyPrecious : Singleton<MyPrecious>
                 winnerWinnerChickenDinner = playersThatAreAlive[0].MyPlayerNumber;
                 m_VictoriousPlayer = playersThatAreAlive[0];
                 UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
+                init();
             }
         }
         else //we know who won 
@@ -91,6 +111,7 @@ public class MyPrecious : Singleton<MyPrecious>
 
             winnerWinnerChickenDinner = playerNumber;
             UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
+            init();
         }
     }
 
