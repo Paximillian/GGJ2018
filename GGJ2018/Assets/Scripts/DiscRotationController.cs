@@ -62,6 +62,9 @@ public class DiscRotationController : MonoBehaviour
     [SerializeField]
     private AudioSource m_SpinRight;
 
+    [SerializeField]
+    private AudioSource m_PlayerHitSound;
+
 
 
 
@@ -191,6 +194,7 @@ public class DiscRotationController : MonoBehaviour
             {
                 if ((!bulleter.BoomerOfMe?.Equals(this)) ?? true)
                 {
+                    m_PlayerHitSound.Play();
                     PlayerHitParticles.Instance.transform.position = bulleter.transform.position;
                     PlayerHitParticles.Instance.Play();
                     Points--;
