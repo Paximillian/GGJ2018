@@ -24,7 +24,7 @@ Visuals:
 -- Player shooting a virus. v
 -- Player getting hit. vv
 -- Bonus pill float trail. vv
--- Bonus pill explodes. v
+-- Bonus pill explodes. vv
 -- Bonus pill spawns. vv
 -- Bonus pill content absorbed.
 
