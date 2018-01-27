@@ -19,6 +19,9 @@ public class DemonAlienShooter : MonoBehaviour
     [SerializeField]
     private ParticleSystem m_RustyHitParticles;
 
+    [SerializeField]
+    private GameObject RustySpoon;
+
     private void Start()
     {
         StartCoroutine(shootDemBulletz());
@@ -37,7 +40,7 @@ public class DemonAlienShooter : MonoBehaviour
     private void fireInDaHole()
     {
         RadioWaveController bullet = ObjectPoolManager.PullObject("Bullet").GetComponent<RadioWaveController>();
-        bullet.transform.position = transform.position;
+        bullet.transform.position = RustySpoon.transform.position;
         StartCoroutine(SpinRustySpin(bullet));
         m_RustySpawnSound.Play();
     }
