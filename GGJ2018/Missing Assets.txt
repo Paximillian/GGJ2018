@@ -13,22 +13,23 @@ Sound:
 - Bonus pill content intercepted by another player. v
 
 Visuals:
+- 
 - Background.
 - Background for main menu.
 - Background for end menu.
 - More disc shapes.
 - Particles:
 -- Rusty spawns a virus. v
--- Rusty getting hit. v
+-- Rusty getting hit. vv
 -- Player shooting a virus. v
--- Player getting hit. v
--- Bonus pill float trail. v
+-- Player getting hit. vv
+-- Bonus pill float trail. vv
 -- Bonus pill explodes. v
--- Bonus pill spawns. v
+-- Bonus pill spawns. vv
 -- Bonus pill content absorbed.
 
 Coding:
-- Control scheme selection.
-- Win condition.
+- Control scheme selection. v
+- Win condition. v
 - End game menu.
 - MOAR BUFFS

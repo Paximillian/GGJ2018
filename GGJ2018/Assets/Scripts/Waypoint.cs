@@ -43,6 +43,8 @@ public class Waypoint : MonoBehaviour {
         else if (collision.gameObject.CompareTag("bettermaker"))
         {
             UpgradeWae(collision.gameObject.GetComponent<MakerBettererBox>());
+
+            HuffDaPuff.Instance.Show(collision.transform.position);
             collision.gameObject.SetActive(false);
         }
     }

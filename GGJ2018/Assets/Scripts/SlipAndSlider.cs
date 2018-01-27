@@ -15,7 +15,10 @@ public class SlipAndSlider : MonoBehaviour {
 
     public void myPerrrcious()
     {
-        MyPrecious.Instance.PointsToWin = (int) m_slider.value;
+        if (Application.isPlaying)
+        {
+            MyPrecious.Instance.PointsToWin = (int)m_slider.value;
+        }
     }
 
 }

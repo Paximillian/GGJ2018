@@ -16,17 +16,13 @@ public class SmashBoru : MonoBehaviour
     [SerializeField]
     private ParticleSystem m_SpawnParticles;
 
-    private void Awake()
-    {
-        StartCoroutine(swapper());
-    }
-
     private void OnEnable()
     {
         m_SpawnSound.Play();
         m_SpawnParticles.Play();
 
         StartCoroutine(PrescribePills());
+        StartCoroutine(swapper());
     }
 
     private IEnumerator PrescribePills()
