@@ -745,7 +745,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Mor is a fucking Shmuck
+  m_Text: <color=yellow>S</color>wish <color=yellow>T</color>ransrusty <color=yellow>D</color>iseases
 --- !u!222 &1170887068
 CanvasRenderer:
   m_ObjectHideFlags: 0

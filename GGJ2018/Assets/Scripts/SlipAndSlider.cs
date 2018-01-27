@@ -26,15 +26,12 @@ public class SlipAndSlider : MonoBehaviour {
 
     public void MySLIDERS(float value)
     {
-        if (value < spoon.transform.childCount)
-        {
-            for (int i = spoon.transform.childCount - 1; i < value; i--)
+
+            foreach(Transform child in spoon.transform)
             {
-                Destroy(spoon.transform.GetChild(i));
+                Destroy(child.gameObject);
             }
-        }
-        else {
-            for (int i = spoon.transform.childCount; i < value; i++)
+            for (int i = 0; i < value; i++)
             {
                 GameObject newspoon = Instantiate(slider);
                 newspoon.transform.SetParent(spoon.transform);
@@ -42,5 +39,3 @@ public class SlipAndSlider : MonoBehaviour {
             }
         }
     }
-
-}
