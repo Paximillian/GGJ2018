@@ -1,4 +1,5 @@
 ﻿using HoloToolkit.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,21 +87,13 @@ public class MyPrecious : Singleton<MyPrecious>
 
     public string HowEZ()
     {
-        float ezScore = 0;
-        float maxPointsDiff = (PointsToWin + Mathf.Abs(m_VictoriousPlayer.PointsToDie));
-        float maxEzScore = (JoinedControllers.Count - 1) * maxPointsDiff;
-        ezScore += (JoinedControllers.Count - playersThatAreAlive.Count) * maxPointsDiff;
-
-        foreach(DiscRotationController playah in playersThatAreAlive)
-        {
-            ezScore += m_VictoriousPlayer.Points - playah.Points;
-        }
+        float ezRating = GetEzRating();
         
-        if((ezScore / maxEzScore) > 0.6f)
+        if(ezRating > 0.6f)
         {
             return "EZ";
         }
-        else if ((ezScore / maxEzScore) > 0.3f)
+        else if (ezRating > 0.3f)
         {
             return "Medium";
         }
@@ -108,5 +101,20 @@ public class MyPrecious : Singleton<MyPrecious>
         {
             return "Hard";
         }
+    }
+
+    public float GetEzRating()
+    {
+        float ezScore = 0;
+        float maxPointsDiff = (PointsToWin + Mathf.Abs(m_VictoriousPlayer.PointsToDie));
+        float maxEzScore = (JoinedControllers.Count - 1) * maxPointsDiff;
+        ezScore += (JoinedControllers.Count - playersThatAreAlive.Count) * maxPointsDiff;
+
+        foreach (DiscRotationController playah in playersThatAreAlive)
+        {
+            ezScore += m_VictoriousPlayer.Points - playah.Points;
+        }
+
+        return ezScore / maxEzScore;
     }
 }

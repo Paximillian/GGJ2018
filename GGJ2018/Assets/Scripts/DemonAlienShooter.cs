@@ -38,8 +38,14 @@ public class DemonAlienShooter : MonoBehaviour
     {
         RadioWaveController bullet = ObjectPoolManager.PullObject("Bullet").GetComponent<RadioWaveController>();
         bullet.transform.position = transform.position;
-
+        StartCoroutine(SpinRustySpin(bullet));
         m_RustySpawnSound.Play();
+    }
+
+    private IEnumerator SpinRustySpin(RadioWaveController bullet) {
+        yield return new WaitForEndOfFrame();
+
+        this.transform.up = -bullet.movedir;
     }
 
     private void OnTriggerEnter(Collider oucher)
