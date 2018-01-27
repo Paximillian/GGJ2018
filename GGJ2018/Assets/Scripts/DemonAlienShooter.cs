@@ -17,9 +17,6 @@ public class DemonAlienShooter : MonoBehaviour
     private AudioSource[] m_RustyHitSound;
 
     [SerializeField]
-    private ParticleSystem m_RustySpawnParticles;
-
-    [SerializeField]
     private ParticleSystem m_RustyHitParticles;
 
     private void Start()
@@ -43,7 +40,6 @@ public class DemonAlienShooter : MonoBehaviour
         bullet.transform.position = transform.position;
 
         m_RustySpawnSound.Play();
-        m_RustySpawnParticles.Play();
     }
 
     private void OnTriggerEnter(Collider oucher)
@@ -79,7 +75,7 @@ public class DemonAlienShooter : MonoBehaviour
 
     private void maybeSpawnSmashBoru()
     {
-        if(Random.Range(0, 10) < 5)
+        if(Random.Range(0, 10) < 2)
         {
             ObjectPoolManager.PullObject("SmashBoru").transform.position = transform.position;
         }
