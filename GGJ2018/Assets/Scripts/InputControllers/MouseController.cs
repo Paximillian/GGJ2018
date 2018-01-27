@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseController : IDiscController 
-{
+public class MouseController : ControllerPapa, IDiscController {
+    public MouseController(ControllerType type, string name) : base(type, name) {
+    }
+
     public float GetHorizontalAxis() {
         return Input.GetAxis("HorizontalAxisM");
     }

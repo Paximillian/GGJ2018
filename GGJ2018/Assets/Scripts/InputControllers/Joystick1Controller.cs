@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Joystick1Controller : IDiscController {
+public class Joystick1Controller : ControllerPapa, IDiscController {
+    public Joystick1Controller(ControllerType type, string name) : base(type, name) {
+    }
+
     public float GetHorizontalAxis() {
         return Input.GetAxis("HorizontalAxisJ1");
     }
