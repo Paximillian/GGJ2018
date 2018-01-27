@@ -9,7 +9,7 @@ public class LikeNoOneEverWas : MonoBehaviour {
 
     private void Awake()
     {
-        self.text = MyPrecious.Instance.winnerWinnerChickenDinner.ToString();
+        self.text = $"Player {MyPrecious.Instance.winnerWinnerChickenDinner.ToString()} won!";
     }
     // Use this for initialization
     void Start () {

@@ -1,6 +1,7 @@
 ﻿using HoloToolkit.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static ControllerPapa;
 
@@ -37,6 +38,8 @@ public class MyPrecious : Singleton<MyPrecious>
 
     public List<DiscRotationController> playersThatAreAlive;
 
+    private DiscRotationController m_VictoriousPlayer;
+
     private Dictionary<int, IDiscController> m_joinedControllers =  new Dictionary<int, IDiscController>();
 
     public Dictionary<int, IDiscController> JoinedControllers {
@@ -68,11 +71,14 @@ public class MyPrecious : Singleton<MyPrecious>
             if (playersThatAreAlive.Count == 1)
             {
                 winnerWinnerChickenDinner = playersThatAreAlive[0].MyPlayerNumber;
+                m_VictoriousPlayer = playersThatAreAlive[0];
                 UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
             }
         }
         else //we know who won 
         {
+            m_VictoriousPlayer = playersThatAreAlive.Where(playah => playah.MyPlayerNumber == playerNumber).First();
+
             winnerWinnerChickenDinner = playerNumber;
             UnityEngine.SceneManagement.SceneManager.LoadScene("WinnerWinnerChickenDinner");
         }
@@ -81,16 +87,15 @@ public class MyPrecious : Singleton<MyPrecious>
     public string HowEZ()
     {
         float ezScore = 0;
-        float maxPointsDiff = (PointsToWin + Mathf.Abs(playersThatAreAlive[winnerWinnerChickenDinner].PointsToDie));
+        float maxPointsDiff = (PointsToWin + Mathf.Abs(m_VictoriousPlayer.PointsToDie));
+        float maxEzScore = (JoinedControllers.Count - 1) * maxPointsDiff;
         ezScore += (JoinedControllers.Count - playersThatAreAlive.Count) * maxPointsDiff;
 
         foreach(DiscRotationController playah in playersThatAreAlive)
         {
-            ezScore += playersThatAreAlive[winnerWinnerChickenDinner].Points - playah.Points;
+            ezScore += m_VictoriousPlayer.Points - playah.Points;
         }
-
-        float maxEzScore = ((JoinedControllers.Count - 1) * 10) + maxPointsDiff;
-
+        
         if((ezScore / maxEzScore) > 0.6f)
         {
             return "EZ";
