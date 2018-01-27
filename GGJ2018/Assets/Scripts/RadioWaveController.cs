@@ -17,7 +17,7 @@ public class RadioWaveController : MonoBehaviour {
 
     static float goweAwayeNum = 1f;
 
-    private Vector3 movedir;
+    public Vector3 movedir;
 
     private float rot = 0f;
     private bool? directionInRoute;
