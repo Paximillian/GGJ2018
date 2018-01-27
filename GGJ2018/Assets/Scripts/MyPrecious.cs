@@ -13,7 +13,7 @@ public class MyPrecious : Singleton<MyPrecious>
     [Range(1, 100)]
     private int m_pointsToWin;
 
-    private int winnerWinnerChickenDinner;
+    public int winnerWinnerChickenDinner;
 
     private IDiscController[] m_standbyControllers =
     {
