@@ -11,7 +11,7 @@ public class MyPrecious : Singleton<MyPrecious>
 
     [SerializeField]
     [Range(1, 100)]
-    private int m_pointsToWin;
+    private int m_pointsToWin = 10;
 
     public int winnerWinnerChickenDinner;
 
@@ -19,7 +19,7 @@ public class MyPrecious : Singleton<MyPrecious>
     {
         new Keyboard1Controller(ControllerType.keyboard, "Keyboard 1"),
         new Keyboard2Controller(ControllerType.keyboard, "Keyboard 2"),
-        new MouseController(ControllerType.mouse, "Mouse"),
+        //new MouseController(ControllerType.mouse, "Mouse"),
         new Joystick1Controller(ControllerType.joystick, "Joystick 1"),
         new Joystick2Controller(ControllerType.joystick, "Joystick 2"),
         new Joystick3Controller(ControllerType.joystick, "Joystick 3"),
