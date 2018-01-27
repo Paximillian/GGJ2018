@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class SlipAndSlider : MonoBehaviour {
     private Slider m_slider;
 
+    public GameObject spoon;
+    public GameObject slider;
+
 	private void Awake ()
     {
         m_slider = GetComponent<Slider>();
@@ -21,4 +24,18 @@ public class SlipAndSlider : MonoBehaviour {
         }
     }
 
-}
+    public void MySLIDERS(float value)
+    {
+
+            foreach(Transform child in spoon.transform)
+            {
+                Destroy(child.gameObject);
+            }
+            for (int i = 0; i < value; i++)
+            {
+                GameObject newspoon = Instantiate(slider);
+                newspoon.transform.SetParent(spoon.transform);
+                newspoon.transform.localPosition = Vector3.down * i * 3f;
+            }
+        }
+    }
